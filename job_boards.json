@@ -1,0 +1,59 @@
+{
+  "job_boards": [
+    {
+      "name": "LinkedIn Jobs",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=software%20intern&location=United%20States&f_TPR=r86400",
+      "type": "linkedin",
+      "selectors": {
+        "listings": ".job-search-card",
+        "title": ".job-search-card__title",
+        "company": ".job-search-card__subtitle",
+        "link": ".job-search-card__title a"
+      }
+    },
+    {
+      "name": "Indeed",
+      "url": "https://www.indeed.com/jobs?q=software+intern&l=United+States&fromage=1",
+      "type": "indeed",
+      "selectors": {
+        "listings": ".jobsearch-ResultsList .result",
+        "title": ".jobTitle",
+        "company": ".companyName",
+        "link": ".jcs-JobTitle"
+      }
+    },
+    {
+      "name": "Glassdoor",
+      "url": "https://www.glassdoor.com/Job/software-intern-jobs-SRCH_KO0,15.htm",
+      "type": "glassdoor",
+      "selectors": {
+        "listings": ".react-job-listing",
+        "title": ".job-title",
+        "company": ".employer-name",
+        "link": "a.jobLink"
+      }
+    },
+    {
+      "name": "Handshake",
+      "url": "https://app.joinhandshake.com/stu/postings?page=1&per_page=25&sort_direction=desc&sort_column=default&query=software%20intern",
+      "type": "handshake",
+      "selectors": {
+        "listings": ".style__job-card",
+        "title": ".style__job-title",
+        "company": ".style__employer-name",
+        "link": "a.style__job-title-link"
+      }
+    },
+    {
+      "name": "Internships.com",
+      "url": "https://www.internships.com/software/intern",
+      "type": "internships",
+      "selectors": {
+        "listings": ".internship-posting",
+        "title": ".internship-title",
+        "company": ".employer-name",
+        "link": "a.internship-link"
+      }
+    }
+  ]
+}

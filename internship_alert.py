@@ -19,3 +19,11 @@ logging.basicConfig(
     handlers=logging.FileHandler("internships_mointer.log",logging.StreamHandler()
  )
 )
+
+class InternshipMoniter:
+    def _load_config(self, config_file):
+        config = configparser.ConfigParser()
+        config.read(config_file)
+        
+    
+

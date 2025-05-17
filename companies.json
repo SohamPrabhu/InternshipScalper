@@ -82,11 +82,11 @@
         "url": "https://www.capitalonecareers.com/search-jobs?acm=ALL&alrpm=ALL&ascf=[%7B%22key%22:%22custom_fields.Campus%22,%22value%22:%22Internships%22%7D]",
         "type": "custom",
         "selectors": {
-        "listings": ".job-card",
-        "title": ".job-title",
-        "location": ".job-location",
-        "link": "a.job-link"
-      }
+            "listings": ".job-card",
+            "title": ".job-title",
+            "location": ".job-location",
+            "link": "a.job-link"
+        }
 
     }
   ]

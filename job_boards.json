@@ -24,7 +24,7 @@
     },
     {
       "name": "Glassdoor",
-      "url": "https://www.glassdoor.com/Job/software-intern-jobs-SRCH_KO0,15.htm",
+      "url": "https://www.glassdoor.com/Job/software-intern-jobs-SRCH_KO0,15.htm?sortBy=date_desc",
       "type": "glassdoor",
       "selectors": {
         "listings": ".react-job-listing",
@@ -42,17 +42,6 @@
         "title": ".style__job-title",
         "company": ".style__employer-name",
         "link": "a.style__job-title-link"
-      }
-    },
-    {
-      "name": "Internships.com",
-      "url": "https://www.internships.com/software/intern",
-      "type": "internships",
-      "selectors": {
-        "listings": ".internship-posting",
-        "title": ".internship-title",
-        "company": ".employer-name",
-        "link": "a.internship-link"
       }
     }
   ]

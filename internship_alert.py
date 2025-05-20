@@ -84,8 +84,23 @@ class InternshipMoniter:
             logging.error(f"Error extracting job info: {e}")
             return None
             
+    def _is_relevant_internship(self, job_info):
+        keywords = self.config['SETTINGS']['keywords'].lower().split(',')
+        title = job_info.get('title','').lower()
+        description = job_info.get('description','').lower()
+        if not any(k in title for k in ['intern','internship']):
+            return False
+        software_kw = ['software', 'developer', 'programming', 'engineer', 'coding', 'development']
+        if not any(k in title or k in description for k in software_kw):
+            return False
+        return True
 
-                                   
+
+
+
+
+
+
     def check_job_board(self, job_board):
         logging.info(f"Chekcing {job_board} for new internship........")
         try:

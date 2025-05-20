@@ -74,6 +74,16 @@ class InternshipMoniter:
                     job_info['url'] = base_url + href
                 else:
                     job_info['url'] = href
+            if location_elem := listing.select_one(selectors.get('location','')):
+                job_info['location'] = location_elem.text.strip()
+            if desc_elem := listing.select_one(selectors.get('description','')):
+                job_info['description'] = desc_elem.text.strip()
+            job_info['discovered_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            return job_info
+        except Exception as e:
+            logging.error(f"Error extracting job info: {e}")
+            return None
+            
 
                                    
     def check_job_board(self, job_board):

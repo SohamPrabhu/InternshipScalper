@@ -61,11 +61,65 @@ class InternshipMoniter:
         ''')
         conn.commit()
         return conn
-    
+    def _extract_job_info(self, source_type, listing, selectors, base_url = ""):
+        job_info = {'source_type': source_type}
+        try:
+            if title_elem := listing.select_one(selectors.get('title', '')):
+                job_info['title'] = title_elem.text.strip()
+            if company_elem := listing.select_one(selectors.get('company','')):
+                job_info['company'] = company_elem.text.strip()
+            if link_elem := listing.select_one(selectors.get('link','')):
+                href = link_elem.get('href', '')
+                if href.startswith('/'):
+                    job_info['url'] = base_url + href
+                else:
+                    job_info['url'] = href
+
+                                   
+    def check_job_board(self, job_board):
+        logging.info(f"Chekcing {job_board} for new internship........")
+        try:
+            response = requests.get(job_board['url'], headers=self.headers, timeout = 30)
+            if response != 30:
+                logging.error(f"Failed to access {job_board['name']}: Status code {response.status_code}")
+                return[]
+            soup = BeautifulSoup(response.text, 'html.parser')
+            base_url = re.match(r'(https?://[^/]+)', job_board['url']).group(1)
+            listings = soup.select(job_board['selectors']['listings'])
+            logging.info(f"Found {len(listings)} potential listings on {job_board['name']}")
+            new_jobs = []
+            for listing in listings:
+                
+                job_info = self._extract_job_info(
+                    job_board['name'], 
+                    listing, 
+                    job_board['selectors'],
+                    base_url
+                )
+                if job_info and self._is_relevant_internship(job_info):
+                    if self._save_job_to_db(job_info):
+                        new_jobs.append(job_info)
+            logging.info(f"Found {len(new_jobs)} new relevant internships on {job_board['name']}")
+            return new_jobs
+        except Exception as e:
+            logging.error(f"Error checking {job_board['name']}: {e}")
+            return []
+
+            
+
+    def run_check(self):
+        all_new_jobs = []
+        for job_board in self.job_boards:
+            new_jobs = self.check_job_board(job_board)
+        
+
+
     def start_mointering(self):
         interval_minutes = int(self.config['SETTINGS']['check_interval_minutes'])
+        logging.info(f"Starting internhsips mointering ever{interval_minutes}")
+        self.check()
 
-        
+
 if __name__ == "__main__":
     try:
         mointer = InternshipMoniter()

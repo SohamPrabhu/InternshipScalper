@@ -90,16 +90,95 @@ class InternshipMoniter:
         description = job_info.get('description','').lower()
         if not any(k in title for k in ['intern','internship']):
             return False
-        software_kw = ['software', 'developer', 'programming', 'engineer', 'coding', 'development']
+        software_kw = ['software', 'developer', 'programming', 'coding', 'development']
         if not any(k in title or k in description for k in software_kw):
             return False
         return True
 
 
+    def _save_job_to_db(self, job_info):
+        cursor = self.db_conn.cursor()
+        cursor.execute("SELECT id FROM internships WHERE url = ?", (job_info.get('url', ''),))
+        if cursor.fetchone():
+            return False
+        cursor.execute('''
+        INSERT INTO internships (
+            source, title, company, url, description, location, posted_date, discovered_date
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            job_info.get('source_type', ''),
+            job_info.get('title', ''),
+            job_info.get('company', ''),
+            job_info.get('url', ''),
+            job_info.get('description', ''),
+            job_info.get('location', ''),
+            job_info.get('posted_date', ''),
+            job_info.get('discovered_date', '')
+        ))
+        
+        self.db_conn.commit()
+        return True
 
 
+    def _send_emailnotification(self,new_jobs):
+        if not new_jobs:
+            return
+        sender_email = self.config['EMAIL']['sender_email']
+        recipient_email = self.config['EMAIL']['recipient_email']
+        password = self.config['EMAIL']['sender_password']
+
+        self.config['EMAIL']['sender_password']
+        msg  = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = recipient_email
+        msg['Subject'] = f"New Software Internship Alerts({len(new_jobs)} positions)"
+        body = f"""<html>
+        <body>
+        <h2>New Software Internship Opportunities</h2>
+        <p>Found {len(new_jobs)} new software internship positions:</p>
+        <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Link</th>
+        </tr>
+        """
+        
+        # Add each job to the email
+        for job in new_jobs:
+            body += f"""
+            <tr>
+                <td>{job.get('company', 'N/A')}</td>
+                <td>{job.get('title', 'N/A')}</td>
+                <td>{job.get('location', 'N/A')}</td>
+                <td><a href="{job.get('url', '#')}">Apply Now</a></td>
+            </tr>
+            """
+        
+        body += """
+        </table>
+        </body>
+        </html>
+        """
+        msg.attach(MIMEText(body,'html'))
+        try:
+            server  = smtplib.SMTP(self.config['EMAIL']['smtp_server'], self.config['EMAIL']['smtp_port'])
+            server.starttls()
+            server.login(sender_email,password)
+            server.send(msg)
+            server.quit()
+            logging.info(f"Email notification sent for {len(new_jobs)} new internships")
+            cursor = self.db_conn.cursor()
+            for jobs in new_jobs:
+                cursor.execute("UPDATE internships SET is_notified = 1 WHERE url = ?", (job.get('url', ''),))
+            self.db_conn.commit()
+        except Exception as e:
+            logging.error(f"Failed to send email notification: {e}")
 
 
+    def check_company_caeer_page(self,company):
+        print()
 
     def check_job_board(self, job_board):
         logging.info(f"Chekcing {job_board} for new internship........")
@@ -136,6 +215,9 @@ class InternshipMoniter:
         all_new_jobs = []
         for job_board in self.job_boards:
             new_jobs = self.check_job_board(job_board)
+            all_new_jobs.extend(new_jobs)
+        for company in self.companies:
+            print()
         
 
 

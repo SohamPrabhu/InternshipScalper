@@ -10,14 +10,16 @@ import configparser
 import os
 import json
 import re
-import sched
+import schedule
 from datetime import datetime
 
 logging.basicConfig(
-    level= logging.info, #Debug detailed information for diagonsing problems WARNING Indication that something unexpected happened Error More critical problems CRTICAL Serious issues
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=logging.FileHandler("internships_mointer.log",logging.StreamHandler()
- )
+    handlers=[
+        logging.FileHandler("internships_monitor.log"),
+        logging.StreamHandler()
+    ]
 )
 
 class InternshipMoniter:
@@ -25,7 +27,7 @@ class InternshipMoniter:
         self.config = self._load_config(config_file)
         self.db_conn = self._initialize_database()
         with open(self.config['FILES']['job_boards_file'], 'r') as f:
-            self.job_boards = json.load(f)
+            self.job_boards = json.load(f)['job_boards']
         
         with open(self.config['FILES']['companies_file'], 'r') as f:
             self.companies = json.load(f)
@@ -170,7 +172,7 @@ class InternshipMoniter:
             server.quit()
             logging.info(f"Email notification sent for {len(new_jobs)} new internships")
             cursor = self.db_conn.cursor()
-            for jobs in new_jobs:
+            for job in new_jobs:
                 cursor.execute("UPDATE internships SET is_notified = 1 WHERE url = ?", (job.get('url', ''),))
             self.db_conn.commit()
         except Exception as e:
@@ -217,14 +219,23 @@ class InternshipMoniter:
             new_jobs = self.check_job_board(job_board)
             all_new_jobs.extend(new_jobs)
         for company in self.companies:
-            print()
+            new_jobs =self.check_company_caeer_page(company)
+            all_new_jobs.extend(new_jobs)
+        if all_new_jobs:
+            self._send_emailnotification(all_new_jobs)
+        logging.info(f"Check complete. Found {len(all_new_jobs)} new internships.")
+
         
 
 
     def start_mointering(self):
         interval_minutes = int(self.config['SETTINGS']['check_interval_minutes'])
         logging.info(f"Starting internhsips mointering ever{interval_minutes}")
-        self.check()
+        self.run_check()
+        schedule.every(interval_minutes).minutes.do(self.run_check)
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
 
 
 if __name__ == "__main__":

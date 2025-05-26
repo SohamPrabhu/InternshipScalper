@@ -180,7 +180,35 @@ class InternshipMoniter:
 
 
     def check_company_caeer_page(self,company):
-        print()
+        logging.info(f"Checking {company['name']} careers page for new internships...")
+        try:
+            response = requests.get(company['url'], headers=self.headers, timeout=30)
+            if response.status_code != 200:
+                logging.error(f"Failed to access {company['name']}: Status code {response.status_code}")
+                return []
+            soup = BeautifulSoup(response.text,'html.parser')
+            base_url = re.match(r'(https?://[^/]+)', company['url']).group(1)
+            listings  = soup.select(company['selectors']['listings'])
+            logging.info(f"Found {len(listings)} potential listings on {company['name']}")
+            new_jobs = []
+            for listing in listings:
+                job_info = self._extract_job_info(
+                    company['name'], 
+                    listing, 
+                    company['selectors'],
+                    base_url
+                )
+                
+                if job_info and self._is_relevant_internship(job_info):
+                    if self._save_job_to_db(job_info):
+                        new_jobs.append(job_info)
+            
+            logging.info(f"Found {len(new_jobs)} new relevant internships on {company['name']}")
+            return new_jobs
+            
+        except Exception as e:
+            logging.error(f"Error checking {company['name']}: {e}")
+            return []
 
     def check_job_board(self, job_board):
         logging.info(f"Chekcing {job_board} for new internship........")

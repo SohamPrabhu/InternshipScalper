@@ -1,48 +1,93 @@
-{
-  "job_boards": [
-    {
-      "name": "LinkedIn Jobs",
-      "url": "https://www.linkedin.com/jobs/search/?keywords=software%20intern&location=United%20States&f_TPR=r86400",
-      "type": "linkedin",
-      "selectors": {
-        "listings": ".job-search-card",
-        "title": ".job-search-card__title",
-        "company": ".job-search-card__subtitle",
-        "link": ".job-search-card__title a"
-      }
+[
+  {
+    "name": "Indeed",
+    "url": "https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date",
+    "type": "indeed",
+    "selectors": {
+      "listings": "[data-jk]",
+      "title": "[data-testid='job-title'] a span",
+      "company": "[data-testid='company-name']",
+      "link": "[data-testid='job-title'] a",
+      "location": "[data-testid='job-location']",
+      "description": "[data-testid='job-snippet']"
     },
-    {
-      "name": "Indeed",
-      "url": "https://www.indeed.com/jobs?q=software+intern&l=United+States&fromage=1",
-      "type": "indeed",
-      "selectors": {
-        "listings": ".jobsearch-ResultsList .result",
-        "title": ".jobTitle",
-        "company": ".companyName",
-        "link": ".jcs-JobTitle"
-      }
+    "notes": "Indeed is most reliable for scraping"
+  },
+  {
+    "name": "SimplyHired",
+    "url": "https://www.simplyhired.com/search?q=software+intern&l=&fdb=3",
+    "type": "simplyhired", 
+    "selectors": {
+      "listings": "[data-testid='searchSerpJob']",
+      "title": "[data-testid='searchSerpJobTitle']",
+      "company": "[data-testid='searchSerpJobCompanyName']",
+      "link": "[data-testid='searchSerpJobTitle'] a",
+      "location": "[data-testid='searchSerpJobLocation']"
     },
-    {
-      "name": "Glassdoor",
-      "url": "https://www.glassdoor.com/Job/software-intern-jobs-SRCH_KO0,15.htm?sortBy=date_desc",
-      "type": "glassdoor",
-      "selectors": {
-        "listings": ".react-job-listing",
-        "title": ".job-title",
-        "company": ".employer-name",
-        "link": "a.jobLink"
-      }
+    "notes": "Good alternative to Indeed"
+  },
+  {
+    "name": "ZipRecruiter",
+    "url": "https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3",
+    "type": "ziprecruiter",
+    "selectors": {
+      "listings": ".job_content",
+      "title": ".job_link",
+      "company": ".company_name",
+      "link": ".job_link",
+      "location": ".location"
     },
-    {
-      "name": "Handshake",
-      "url": "https://app.joinhandshake.com/stu/postings?page=1&per_page=25&sort_direction=desc&sort_column=default&query=software%20intern",
-      "type": "handshake",
-      "selectors": {
-        "listings": ".style__job-card",
-        "title": ".style__job-title",
-        "company": ".style__employer-name",
-        "link": "a.style__job-title-link"
-      }
-    }
-  ]
-}
+    "notes": "Another reliable job board"
+  },
+  {
+    "name": "Dice Tech Jobs",
+    "url": "https://www.dice.com/jobs?q=software%20intern&location=&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=THREE",
+    "type": "dice",
+    "selectors": {
+      "listings": "[data-testid='search-result-card']",
+      "title": "[data-testid='job-title']",
+      "company": "[data-testid='company-name']", 
+      "link": "[data-testid='job-title'] a",
+      "location": "[data-testid='job-location']"
+    },
+    "notes": "Tech-focused job board"
+  },
+  {
+    "name": "AngelList (Wellfound)",
+    "url": "https://wellfound.com/role/r/intern",
+    "type": "angellist",
+    "selectors": {
+      "listings": "[data-test='StartupResult']",
+      "title": "[data-test='JobTitle']",
+      "company": "[data-test='StartupNameLink']",
+      "link": "[data-test='JobTitle'] a",
+      "location": "[data-test='JobLocation']"
+    },
+    "notes": "Startup-focused positions"
+  },
+  {
+    "name": "GitHub Jobs (via companies)",
+    "url": "https://github.com/search?q=internship+software&type=repositories",
+    "type": "github",
+    "selectors": {
+      "listings": ".Box-row",
+      "title": ".v-align-middle",
+      "company": ".text-normal",
+      "link": ".v-align-middle a"
+    },
+    "notes": "Alternative approach - look for company job repos"
+  },
+  {
+    "name": "RemoteOK Internships",
+    "url": "https://remoteok.io/remote-intern-jobs",
+    "type": "remoteok",
+    "selectors": {
+      "listings": ".job",
+      "title": ".companyLink h2",
+      "company": ".company h3",
+      "link": ".companyLink",
+      "location": ".location"
+    },
+    "notes": "Remote internship opportunities"
+  }
+]

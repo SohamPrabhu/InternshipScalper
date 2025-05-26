@@ -1,93 +1,46 @@
-{
-  "companies": [
-    {
-      "name": "Google",
-      "url": "https://careers.google.com/jobs/results/?distance=50&q=intern",
-      "type": "custom",
-      "selectors": {
-        "listings": ".job-search-results__list-item",
-        "title": ".gc-card__title",
-        "location": ".gc-job-tags__location",
-        "link": "a.gc-card"
-      }
-    },
-    {
-      "name": "Microsoft",
-      "url": "https://careers.microsoft.com/students/us/en/search-results?keywords=intern",
-      "type": "custom",
-      "selectors": {
-        "listings": ".job-card",
-        "title": ".job-card__title",
-        "location": ".job-card__location",
-        "link": "a.job-card__link"
-      }
-    },
-    {
-      "name": "Amazon",
-      "url": "https://www.amazon.jobs/en/search?base_query=intern&loc_query=",
-      "type": "custom",
-      "selectors": {
-        "listings": ".job-tile",
-        "title": ".job-title",
-        "location": ".location-and-id",
-        "link": "a.job-link"
-      }
-    },
-    {
-      "name": "Meta",
-      "url": "https://www.metacareers.com/jobs?q=intern",
-      "type": "custom",
-      "selectors": {
-        "listings": "._8sel",
-        "title": "._8sef",
-        "location": "._8see",
-        "link": "a._8sgk"
-      }
-    },
-    {
-      "name": "Apple",
-      "url": "https://jobs.apple.com/en-us/search?team=internships-STDNT-INTRN",
-      "type": "custom",
-      "selectors": {
-        "listings": ".table-row",
-        "title": ".table--advanced-search__title",
-        "location": ".table--advanced-search__location",
-        "link": "a.table--advanced-search__item"
-      }
-    },
-    {
-      "name": "IBM",
-      "url": "https://careers.ibm.com/job-search?keywords=intern",
-      "type": "custom",
-      "selectors": {
-        "listings": ".job-card",
-        "title": ".job-card__title",
-        "location": ".job-card__location",
-        "link": "a.job-card__link"
-      }
-    },
-    {
-      "name": "American Express",
-      "url": "https://aexp.eightfold.ai/careers?location=United+States&Role+Type=campus&intlink=us-amex-career-en-us-GlobalStudentsPage-applynow-US&hl=en",
-      "type": "custom",
-      "selectors": {
-        "listings": ".job-card",
-        "title": ".job-title",
-        "location": ".job-location",
-        "link": "a.job-link"
-      }
-    },
-    {
-        "name": "CapitalOne",
-        "url": "https://www.capitalonecareers.com/search-jobs?acm=ALL&alrpm=ALL&ascf=[%7B%22key%22:%22custom_fields.Campus%22,%22value%22:%22Internships%22%7D]",
-        "type": "custom",
-        "selectors": {
-            "listings": ".job-card",
-            "title": ".job-title",
-            "location": ".job-location",
-            "link": "a.job-link"
-        }
-
+[
+  {
+    "name": "Google",
+    "careers_url": "https://careers.google.com/jobs/results/?q=intern",
+    "selectors": {
+      "listings": "[data-category='jobs'] .gc-card",
+      "title": ".gc-card__title",
+      "company": ".gc-card__company", 
+      "link": "a",
+      "location": ".gc-card__location"
     }
-  ]
-}
+  },
+  {
+    "name": "Microsoft",
+    "careers_url": "https://careers.microsoft.com/students/us/en/search-results?keywords=intern",
+    "selectors": {
+      "listings": ".ms-List-item",
+      "title": "[data-automation-id='jobTitle']",
+      "company": "[data-automation-id='company']",
+      "link": "a",
+      "location": "[data-automation-id='location']"
+    }
+  },
+  {
+    "name": "Amazon",
+    "careers_url": "https://www.amazon.jobs/en/search?base_query=intern&loc_query=",
+    "selectors": {
+      "listings": ".job-tile",
+      "title": ".job-title",
+      "company": ".company-name",
+      "link": "a",
+      "location": ".location-and-id"
+    }
+  },
+  {
+    "name": "Meta",
+    "careers_url": "https://www.metacareers.com/jobs?q=intern",
+    "selectors": {
+      "listings": "[data-testid='job-item']",
+      "title": "[data-testid='job-title']",
+      "company": "[data-testid='company-name']",
+      "link": "a",
+      "location": "[data-testid='job-location']"
+    }
+  }
+]

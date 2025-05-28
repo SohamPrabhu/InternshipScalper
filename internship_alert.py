@@ -58,6 +58,28 @@ class InternshipMoniter:
     def _load_config(self, config_file):
         config = configparser.ConfigParser()
         config.read(config_file)
+        config.read_dict({
+            'EMAIL': {
+                'smtp_server': os.getenv('SMTP_SERVER', 'smtp.gmail.com'),
+                'smtp_port': os.getenv('SMTP_PORT', '587'),
+                'sender_email': os.getenv('SENDER_EMAIL', ''),
+                'sender_password': os.getenv('SENDER_PASSWORD', ''),
+                'recipient_email': os.getenv('RECIPIENT_EMAIL', '')
+            },
+            'SETTINGS': {
+                'check_interval_minutes': os.getenv('CHECK_INTERVAL', '30'),
+                'keywords': os.getenv('KEYWORDS', 'software,intern,internship,developer,engineering,coding,programming')
+            }
+        })
+        if os.path.exists(config_file):
+            config.read(config_file)
+            logging.info(f"Loaded configuration from {config_file}")
+        else:
+            logging.warning(f"Config file {config_file} not found, using environment variables and defaults")
+        if not config['EMAIL']['sender_email'] or not config['EMAIL']['sender_password']:
+            logging.error("Email credentials not found in config or environment variables")
+            raise ValueError("Email credentials required. Set SENDER_EMAIL and SENDER_PASSWORD environment variables")
+            
         return config
     
     def _load_job_board(self):

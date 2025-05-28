@@ -130,6 +130,11 @@ class InternshipMoniter:
         except sqlite3.Error as e:
             logging.error(f"Database initialization failed: {e}")
             raise
+    def _rate_limit(self):
+        delay = random.uniform(self.min_delay, self.max_delay)
+        logging.debug(f"Rate limiting: waiting {delay:.2f} seconds")
+        time.sleep(delay)
+
 
     def _extract_job_info(self, source_type, listing, selectors, base_url = ""):
         job_info = {'source_type': source_type}

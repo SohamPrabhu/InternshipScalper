@@ -108,24 +108,29 @@ class InternshipMoniter:
 
 
     def _initialize_database(self):
-        conn = sqlite3.connect('internships.db')
-        cursor =  conn.cursor()
-        cursor.execute(''' 
-        CREATE TABLE IF NOT EXISTS internships (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            source TEXT,
-            title TEXT,
-            company TEXT,
-            url TEXT UNIQUE,
-            description TEXT,
-            location TEXT,
-            posted_date TEXT,
-            discovered_date TEXT,
-            is_notified INTEGER DEFAULT 0
-        )
-        ''')
-        conn.commit()
-        return conn
+        try:
+            conn = sqlite3.connect('internships.db')
+            cursor =  conn.cursor()
+            cursor.execute(''' 
+            CREATE TABLE IF NOT EXISTS internships (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                source TEXT,
+                title TEXT,
+                company TEXT,
+                url TEXT UNIQUE,
+                description TEXT,
+                location TEXT,
+                posted_date TEXT,
+                discovered_date TEXT,
+                is_notified INTEGER DEFAULT 0
+            )
+            ''')
+            conn.commit()
+            return conn
+        except sqlite3.Error as e:
+            logging.error(f"Database initialization failed: {e}")
+            raise
+
     def _extract_job_info(self, source_type, listing, selectors, base_url = ""):
         job_info = {'source_type': source_type}
         try:

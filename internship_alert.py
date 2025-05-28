@@ -12,6 +12,10 @@ import json
 import re
 import schedule
 from datetime import datetime
+import random
+from urllib.parse import urljoin, urlparse
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 logging.basicConfig(
     level=logging.INFO,
@@ -26,21 +30,58 @@ class InternshipMoniter:
     def __init__(self, config_file = 'config.ini'):
         self.config = self._load_config(config_file)
         self.db_conn = self._initialize_database()
-        with open(self.config['FILES']['job_boards_file'], 'r') as f:
-            self.job_boards = json.load(f)['job_boards']
-        
-        with open(self.config['FILES']['companies_file'], 'r') as f:
-            self.companies = json.load(f)
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
+        self.job_boards = self._load_job_board()
+        self.comapanies = self._load_companies()
+        self.session = self._setup_session()
+
+        self.min_delay = 2
+        self.max_delay = 5
 
 
+    def _setup_session(self):
+        session = requests.Session()
 
+        retry_strategy = Retry(total=3, backoff_factor=1,status_forcelist=[429, 500, 502, 503, 504],)
+
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+        })
+        return session
+
+    
     def _load_config(self, config_file):
         config = configparser.ConfigParser()
         config.read(config_file)
         return config
+    
+    def _load_job_board(self):
+        job_boards_file = self.config.get('FILES','job_boards.json', fallback='job_boards.json')
+        try:
+            with open(job_boards_file,'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            logging.error(f"Job boards file {job_boards_file} not found")
+        except json.JSONDecodeError as e:
+            logging.error(f"Error parsing job boards JSON: {e}")
+            return []
+
+    def _load_companies(self):
+        companies_file = self.config.get('FILES', 'companies_file', fallback= 'companies.json')
+        try:
+            with open(companies_file,'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            logging.warning(f"Companies file {companies_file} not found, skipping company checks")
+            return []
+        except json.JSONDecodeError as e:
+            logging.error(f"Error parsing companies JSON: {e}")
+            return []
 
 
 

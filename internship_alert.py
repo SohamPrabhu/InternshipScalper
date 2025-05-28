@@ -134,6 +134,21 @@ class InternshipMoniter:
         delay = random.uniform(self.min_delay, self.max_delay)
         logging.debug(f"Rate limiting: waiting {delay:.2f} seconds")
         time.sleep(delay)
+    def _test_selector(self, url, selector,description=""):
+        try:
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.txt,'html.parser')
+                elements = soup.select(selector)
+                logging.info(f"Selector test for {description}: found {len(elements)} elements with '{selector}'")
+                return len(elements) > 0
+            else:
+                logging.warning(f"Selector test failed: HTTP {response.status_code} for {url}")
+                return False
+        except Exception as e:
+            logging.error(f"Selector test error for {url}: {e}")
+            return False
+
 
 
     def _extract_job_info(self, source_type, listing, selectors, base_url = ""):

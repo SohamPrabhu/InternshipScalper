@@ -183,20 +183,28 @@ class InternshipMoniter:
         job_info = {'source_type': source_type}
         try:
             if title_elem := listing.select_one(selectors.get('title', '')):
-                job_info['title'] = title_elem.text.strip()
+                job_info['title'] = title_elem.get_text(strip=True)
+                logging.debug(f"Extracted title: {job_info['title']}")
+
+
             if company_elem := listing.select_one(selectors.get('company','')):
-                job_info['company'] = company_elem.text.strip()
+                job_info['company'] = company_elem.get_text(strip=True)
+                logging.debug(f"Extracted company: {job_info['company']}")
+
             if link_elem := listing.select_one(selectors.get('link','')):
                 href = link_elem.get('href', '')
-                if href.startswith('/'):
-                    job_info['url'] = base_url + href
-                else:
-                    job_info['url'] = href
-            if location_elem := listing.select_one(selectors.get('location','')):
-                job_info['location'] = location_elem.text.strip()
-            if desc_elem := listing.select_one(selectors.get('description','')):
-                job_info['description'] = desc_elem.text.strip()
+                if href:
+                    job_info['url'] = urljoin(base_url, href)
+                    logging.debug(f"Extracted URL: {job_info['url']}")
+            if location_elem := listing.select_one(selectors.get('location', '')):
+                job_info['location'] = location_elem.get_text(strip=True)
+                logging.debug(f"Extracted location: {job_info['location']}")
+            if desc_elem := listing.select_one(selectors.get('description', '')):
+                job_info['description'] = desc_elem.get_text(strip=True)[:500]
             job_info['discovered_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            if not job_info.get('title') or not job_info.get('url'):
+                logging.warning(f"Missing required fields for job from {source_type}")
+                return None    
             return job_info
         except Exception as e:
             logging.error(f"Error extracting job info: {e}")

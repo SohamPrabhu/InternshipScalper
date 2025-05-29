@@ -171,7 +171,7 @@ class InternshipMoniter:
                     logging.warning(f"HTTP {response.status_code} for {url}")
             except requests.exceptions.Timeout:
                 logging.warning(f"Timeout for {url} on attempt {attempt + 1}")
-            except requests.exceptions.ConnectionError as e
+            except requests.exceptions.ConnectionError as e:
                 logging.warning(f"Connection error for {url}: {e}")
             except requests.exceptions.RequestException as e:
                 logging.error(f"Request error for {url}: {e}")
@@ -233,27 +233,36 @@ class InternshipMoniter:
 
 
     def _save_job_to_db(self, job_info):
-        cursor = self.db_conn.cursor()
-        cursor.execute("SELECT id FROM internships WHERE url = ?", (job_info.get('url', ''),))
-        if cursor.fetchone():
+        try:
+            cursor = self.db_conn.cursor()
+            cursor.execute("SELECT id FROM internships WHERE url = ?", (job_info.get('url', ''),))
+            if cursor.fetchone():
+                logging.debug(f"Job already exists in database: {job_info.get('url')}")
+                return False
+            cursor.execute('''
+            INSERT INTO internships (
+                source, title, company, url, description, location, posted_date, discovered_date
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                job_info.get('source_type', ''),
+                job_info.get('title', ''),
+                job_info.get('company', ''),
+                job_info.get('url', ''),
+                job_info.get('description', ''),
+                job_info.get('location', ''),
+                job_info.get('posted_date', ''),
+                job_info.get('discovered_date', '')
+            ))
+            
+            self.db_conn.commit()
+            logging.info(f"Saved new job to database: {job_info.get('title')} at {job_info.get('company')}")
+
+            return True
+        except sqlite3.Error as e:
+            
+            logging.error(f"Database error while saving job: {e}")
             return False
-        cursor.execute('''
-        INSERT INTO internships (
-            source, title, company, url, description, location, posted_date, discovered_date
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (
-            job_info.get('source_type', ''),
-            job_info.get('title', ''),
-            job_info.get('company', ''),
-            job_info.get('url', ''),
-            job_info.get('description', ''),
-            job_info.get('location', ''),
-            job_info.get('posted_date', ''),
-            job_info.get('discovered_date', '')
-        ))
-        
-        self.db_conn.commit()
-        return True
+
 
 
     def _send_emailnotification(self,new_jobs):

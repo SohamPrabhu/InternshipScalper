@@ -148,6 +148,14 @@ class InternshipMoniter:
         except Exception as e:
             logging.error(f"Selector test error for {url}: {e}")
             return False
+    def _test_all_selectors(self):
+        logging.info("Testing all CSS selectors...")
+        for job_board in self.job_boards:
+            if self._test_selector(job_board['url'], job_board['selectors']['listings'], f"{job_board['name']} listings"):
+                for selector_name, selector in job_board['selectors'].items():
+                    if selector_name != 'listings':
+                        self._test_selector(job_board['url'], selector, f"{job_board['name']} {selector_name}")
+        self._rate_limit()
 
 
 

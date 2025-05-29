@@ -211,15 +211,25 @@ class InternshipMoniter:
             return None
             
     def _is_relevant_internship(self, job_info):
-        keywords = self.config['SETTINGS']['keywords'].lower().split(',')
         title = job_info.get('title','').lower()
-        description = job_info.get('description','').lower()
-        if not any(k in title for k in ['intern','internship']):
+        description = job_info.get('description', '').lower()
+
+
+        internship_keywords = ['intern', 'internship', 'co-op', 'coop', 'student']
+        text_to_search = f"{title} {description}"
+        if not any(keyword in title for keyword in internship_keywords):
+            logging.debug(f"Rejected - no internship keywords in title: {title}")
             return False
-        software_kw = ['software', 'developer', 'programming', 'coding', 'development']
-        if not any(k in title or k in description for k in software_kw):
-            return False
-        return True
+        keywords = [kw.strip().lower() for kw in self.config['SETTINGS']['keywords'].split(',')]
+        if any(keyword in text_to_search for keyword in keywords):
+            logging.debug(f"Accepted relevant internship: {title}")
+            return True
+        logging.debug(f"Rejected - no relevant keywords: {title}")
+        return False
+
+        
+
+        
 
 
     def _save_job_to_db(self, job_info):

@@ -148,7 +148,7 @@ class InternshipMoniter:
         except Exception as e:
             logging.error(f"Selector test error for {url}: {e}")
             return False
-    def _test_all_selectors(self):
+    def test_all_selectors(self):
         logging.info("Testing all CSS selectors...")
         for job_board in self.job_boards:
             if self._test_selector(job_board['url'], job_board['selectors']['listings'], f"{job_board['name']} listings"):
@@ -156,9 +156,29 @@ class InternshipMoniter:
                     if selector_name != 'listings':
                         self._test_selector(job_board['url'], selector, f"{job_board['name']} {selector_name}")
         self._rate_limit()
-
-
-
+    def _make_request_with_retry(self, url,max_retries = 3):
+        for attempt in range(max_retries):
+            try:
+                logging.debug(f"Attempting to fetch {url} (attempt {attempt + 1})")
+                response = self.session.get(url, timeout=30)
+                if response.status_code == 200:
+                    logging.debug(f"Successfully fetched {url}")
+                elif response.status_code == 429:
+                    wait_time = 2**attempt*60
+                    logging.warning(f"Rate limited on {url}, waiting {wait_time} seconds")
+                    time.sleep(wait_time)
+                else:
+                    logging.warning(f"HTTP {response.status_code} for {url}")
+            except requests.exceptions.Timeout:
+                logging.warning(f"Timeout for {url} on attempt {attempt + 1}")
+            except requests.exceptions.ConnectionError as e
+                logging.warning(f"Connection error for {url}: {e}")
+            except requests.exceptions.RequestException as e:
+                logging.error(f"Request error for {url}: {e}")
+            self._rate_limit()
+        logging.error(f"Failed to fetch {url} after {max_retries} attempts")
+        return None
+  
     def _extract_job_info(self, source_type, listing, selectors, base_url = ""):
         job_info = {'source_type': source_type}
         try:

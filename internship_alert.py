@@ -256,10 +256,8 @@ class InternshipMoniter:
             
             self.db_conn.commit()
             logging.info(f"Saved new job to database: {job_info.get('title')} at {job_info.get('company')}")
-
             return True
         except sqlite3.Error as e:
-            
             logging.error(f"Database error while saving job: {e}")
             return False
 
@@ -268,58 +266,34 @@ class InternshipMoniter:
     def _send_emailnotification(self,new_jobs):
         if not new_jobs:
             return
-        sender_email = self.config['EMAIL']['sender_email']
-        recipient_email = self.config['EMAIL']['recipient_email']
-        password = self.config['EMAIL']['sender_password']
-
-        self.config['EMAIL']['sender_password']
-        msg  = MIMEMultipart()
-        msg['From'] = sender_email
-        msg['To'] = recipient_email
-        msg['Subject'] = f"New Software Internship Alerts({len(new_jobs)} positions)"
-        body = f"""<html>
-        <body>
-        <h2>New Software Internship Opportunities</h2>
-        <p>Found {len(new_jobs)} new software internship positions:</p>
-        <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <th>Company</th>
-            <th>Position</th>
-            <th>Location</th>
-            <th>Link</th>
-        </tr>
-        """
-        
-        # Add each job to the email
-        for job in new_jobs:
-            body += f"""
-            <tr>
-                <td>{job.get('company', 'N/A')}</td>
-                <td>{job.get('title', 'N/A')}</td>
-                <td>{job.get('location', 'N/A')}</td>
-                <td><a href="{job.get('url', '#')}">Apply Now</a></td>
-            </tr>
-            """
-        
-        body += """
-        </table>
-        </body>
-        </html>
-        """
-        msg.attach(MIMEText(body,'html'))
         try:
-            server  = smtplib.SMTP(self.config['EMAIL']['smtp_server'], self.config['EMAIL']['smtp_port'])
-            server.starttls()
-            server.login(sender_email,password)
-            server.send(msg)
-            server.quit()
+            sender_email = self.config['EMAIL']['sender_email']
+            recipient_email = self.config['EMAIL']['recipient_email']
+            password = self.config['EMAIL']['sender_password']
+
+            msg  = MIMEMultipart()
+            msg['From'] = sender_email
+            msg['To'] = recipient_email
+            msg['Subject'] = f"New Software Internship Alerts({len(new_jobs)} positions)"
+            body = self._create_email_body(new_jobs)
+
+            msg.attach(MIMEText(body,'html'))
+            with smtplib.SMTP(self.config['EMAIL']['smtp_server'],int(self.config['EMAIL']['smtp_port'])) as server:
+                server.starttls()
+                server.login(sender_email, password)
+                server.send_message(msg)
+                
             logging.info(f"Email notification sent for {len(new_jobs)} new internships")
-            cursor = self.db_conn.cursor()
-            for job in new_jobs:
-                cursor.execute("UPDATE internships SET is_notified = 1 WHERE url = ?", (job.get('url', ''),))
-            self.db_conn.commit()
+            
+            self._mark_jobs_notified(new_jobs)
+        except smtplib.SMTPAuthenticationError:
+            logging.error("Email authentication failed - check credentials")
+        except smtplib.SMTPException as e:
+            logging.error(f"SMTP error: {e}")
         except Exception as e:
             logging.error(f"Failed to send email notification: {e}")
+
+
 
 
     def check_company_caeer_page(self,company):

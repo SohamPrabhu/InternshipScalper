@@ -370,35 +370,48 @@ class InternshipMoniter:
             return []
 
     def check_job_board(self, job_board):
-        logging.info(f"Chekcing {job_board} for new internship........")
+        logging.info(f"Checking {job_board['name']} for new internships...")
         try:
-            response = requests.get(job_board['url'], headers=self.headers, timeout = 30)
-            if response != 30:
-                logging.error(f"Failed to access {job_board['name']}: Status code {response.status_code}")
-                return[]
-            soup = BeautifulSoup(response.text, 'html.parser')
-            base_url = re.match(r'(https?://[^/]+)', job_board['url']).group(1)
+            response = self._make_request_with_retry(job_board['url'])
+            if not response:
+                return []
+            soup = BeautifulSoup(response.text, 'htmlparser')
+            parsed_url = urlparse(job_board['url'])
+            base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+
             listings = soup.select(job_board['selectors']['listings'])
             logging.info(f"Found {len(listings)} potential listings on {job_board['name']}")
+
+            if not listings:
+                logging.warning(f"No listings found - selectors may be outdated for {job_board['name']}")
+                return []
+
             new_jobs = []
-            for listing in listings:
-                
+            for i,listing in enumerate(listings):
+                logging.debug(f"Processing listing {i+1}/{len(listings)} from {job_board['name']}")
+
                 job_info = self._extract_job_info(
                     job_board['name'], 
                     listing, 
                     job_board['selectors'],
                     base_url
                 )
-                if job_info and self._is_relevant_internship(job_info):
-                    if self._save_job_to_db(job_info):
-                        new_jobs.append(job_info)
+                if job_info:
+                    if self._is_relevant_internship(job_info):
+                        if self._save_job_to_db(job_info):
+                            new_jobs.append(job_info)
+                            logging.info(f"New relevant internship found: {job_info['title']} at {job_info.get('company', 'Unknown')}")
+                if i < len(listing) -1:
+                    time.sleep(0.5)
             logging.info(f"Found {len(new_jobs)} new relevant internships on {job_board['name']}")
             return new_jobs
         except Exception as e:
             logging.error(f"Error checking {job_board['name']}: {e}")
             return []
 
-            
+
+                            
+
 
     def run_check(self):
         all_new_jobs = []

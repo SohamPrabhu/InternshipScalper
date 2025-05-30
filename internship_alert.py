@@ -415,32 +415,62 @@ class InternshipMoniter:
 
     def run_check(self):
         all_new_jobs = []
+        logging.info("=" * 50)
+        logging.info("Starting internship check cycle")
+        logging.info("=" * 50)
+        
         for job_board in self.job_boards:
-            new_jobs = self.check_job_board(job_board)
-            all_new_jobs.extend(new_jobs)
-        for company in self.companies:
-            new_jobs =self.check_company_caeer_page(company)
-            all_new_jobs.extend(new_jobs)
+            try:
+                new_job = self.check_job_board(job_board)
+                all_new_jobs.extend(new_job)
+                self._rate_limit()
+            except Exception as e:
+                logging.error(f"Unexpected error checking {job_board.get('name', 'unknown')}: {e}")
+        
+        for company in self.comapanies:
+            try:
+                new_jobs = self.check_company_caeer_page(company)
+                all_new_jobs.extend(new_job)
+                self._rate_limit()
+            except Exception as e:
+                logging.error(f"Unexpected error checking company {company.get('name', 'unknown')}: {e}")
         if all_new_jobs:
             self._send_emailnotification(all_new_jobs)
-        logging.info(f"Check complete. Found {len(all_new_jobs)} new internships.")
+            logging.info(f"Check complete. Found {len(all_new_jobs)} new internships!")
+        else:
+            logging.info(" Check complete. No new internships found.")
+        logging.info("=" * 50)
 
-        
-
-
+              
     def start_mointering(self):
         interval_minutes = int(self.config['SETTINGS']['check_interval_minutes'])
-        logging.info(f"Starting internhsips mointering ever{interval_minutes}")
+        logging.info(f"Starting internship monitoring every {interval_minutes} minutes")
+        logging.info(f"Notifications will be sent to: {self.config['EMAIL']['recipient_email']}")
         self.run_check()
         schedule.every(interval_minutes).minutes.do(self.run_check)
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+        try:
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
+        except KeyboardInterrupt:
+            logging.info("👋 Monitor stopped by user")
+        finally:
+            self.cleanup()
+    def cleanup(self):
+        if hasattr(self,'db_conn'):
+            self.db_conn.close()
+            logging.info("Database connection closed")
+        if hasattr(self,'session'):
+            self.session.close()
+            logging.info("HTTP session closed")
+
+
 
 
 if __name__ == "__main__":
     try:
         mointer = InternshipMoniter()
+        mointer.test_all_selectors()
         mointer.start_mointering()
     except KeyboardInterrupt:
         logging.info("Mointer Stopped by user")

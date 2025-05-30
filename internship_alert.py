@@ -329,6 +329,14 @@ class InternshipMoniter:
         </html>
         """
         return body
+    def _mark_jobs_notified(self, new_jobs):
+        try:
+            cursor = self.db_conn.cursor()
+            for job in new_jobs:
+                cursor.execute("UPDATE internships SET is_notified = 1 WHERE url = ?",(job.get('url', ''),))
+            self.db_conn.commit()
+        except sqlite3.Error as e:
+            logging.error(f"Error marking jobs as notified: {e}")
 
     def check_company_caeer_page(self,company):
         logging.info(f"Checking {company['name']} careers page for new internships...")

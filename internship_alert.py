@@ -294,7 +294,41 @@ class InternshipMoniter:
             logging.error(f"Failed to send email notification: {e}")
 
 
-
+    def _create_email_body(self, new_jobs):
+        body = f"""
+        <html>
+        <body style="font-family: Arial, sans-serif;">
+        <h2 style="color: #2c3e50;"> New Software Internship Opportunities</h2>
+        <p>Found <strong>{len(new_jobs)}</strong> new software internship positions:</p>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+        <tr style="background-color: #3498db; color: white;">
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Source</th>
+            <th>Action</th>
+        </tr>
+        """
+        
+        for job in new_jobs:
+            body += f"""
+            <tr>
+                <td><strong>{job.get('company', 'N/A')}</strong></td>
+                <td>{job.get('title', 'N/A')}</td>
+                <td>{job.get('location', 'N/A')}</td>
+                <td>{job.get('source_type', 'N/A')}</td>
+                <td><a href="{job.get('url', '#')}" style="background-color: #27ae60; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Apply Now</a></td>
+            </tr>
+            """
+        
+        body += """
+        </table>
+        <p style="margin-top: 20px; color: #7f8c8d;">
+        </p>
+        </body>
+        </html>
+        """
+        return body
 
     def check_company_caeer_page(self,company):
         logging.info(f"Checking {company['name']} careers page for new internships...")

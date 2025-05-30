@@ -1,0 +1,58 @@
+2025-05-29 22:23:11,731 - INFO - Loaded configuration from config.ini
+2025-05-29 22:23:11,733 - INFO - Testing all CSS selectors...
+2025-05-29 22:23:11,834 - WARNING - Selector test failed: HTTP 403 for https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date
+2025-05-29 22:23:13,533 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-05-29 22:23:14,709 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle']'
+2025-05-29 22:23:16,104 - INFO - Selector test for SimplyHired company: found 0 elements with '[data-testid='searchSerpJobCompanyName']'
+2025-05-29 22:23:17,378 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a'
+2025-05-29 22:23:19,121 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation']'
+2025-05-29 22:23:19,187 - WARNING - Selector test failed: HTTP 403 for https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3
+2025-05-29 22:23:20,571 - INFO - Selector test for Dice Tech Jobs listings: found 0 elements with '[data-testid='search-result-card']'
+2025-05-29 22:23:20,676 - WARNING - Selector test failed: HTTP 403 for https://wellfound.com/role/r/intern
+2025-05-29 22:23:21,114 - INFO - Selector test for GitHub Jobs (via companies) listings: found 0 elements with '.Box-row'
+2025-05-29 22:23:22,465 - INFO - Selector test for RemoteOK Internships listings: found 1 elements with '.job'
+2025-05-29 22:23:23,611 - INFO - Selector test for RemoteOK Internships title: found 0 elements with '.companyLink h2'
+2025-05-29 22:23:24,510 - INFO - Selector test for RemoteOK Internships company: found 1 elements with '.company h3'
+2025-05-29 22:23:26,353 - INFO - Selector test for RemoteOK Internships link: found 1 elements with '.companyLink'
+2025-05-29 22:23:27,356 - INFO - Selector test for RemoteOK Internships location: found 2 elements with '.location'
+2025-05-29 22:23:30,659 - INFO - Starting internship monitoring every 30 minutes
+2025-05-29 22:23:30,659 - INFO - Notifications will be sent to: prabhusoham151@gmail.com
+2025-05-29 22:23:30,660 - INFO - ==================================================
+2025-05-29 22:23:30,660 - INFO - Starting internship check cycle
+2025-05-29 22:23:30,660 - INFO - ==================================================
+2025-05-29 22:23:30,660 - INFO - Checking Indeed for new internships...
+2025-05-29 22:23:30,728 - WARNING - HTTP 403 for https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date
+2025-05-29 22:23:34,205 - WARNING - HTTP 403 for https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date
+2025-05-29 22:23:36,826 - WARNING - HTTP 403 for https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date
+2025-05-29 22:23:39,218 - ERROR - Failed to fetch https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date after 3 attempts
+2025-05-29 22:23:43,903 - INFO - Checking SimplyHired for new internships...
+2025-05-29 22:23:59,632 - ERROR - Failed to fetch https://www.simplyhired.com/search?q=software+intern&l=&fdb=3 after 3 attempts
+2025-05-29 22:24:02,608 - INFO - Checking ZipRecruiter for new internships...
+2025-05-29 22:24:02,672 - WARNING - HTTP 403 for https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3
+2025-05-29 22:24:05,784 - WARNING - HTTP 403 for https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3
+2025-05-29 22:24:09,859 - WARNING - HTTP 403 for https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3
+2025-05-29 22:24:12,344 - ERROR - Failed to fetch https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3 after 3 attempts
+2025-05-29 22:24:16,219 - INFO - Checking Dice Tech Jobs for new internships...
+2025-05-29 22:24:27,380 - ERROR - Failed to fetch https://www.dice.com/jobs?q=software%20intern&location=&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=THREE after 3 attempts
+2025-05-29 22:24:30,266 - INFO - Checking AngelList (Wellfound) for new internships...
+2025-05-29 22:24:30,331 - WARNING - HTTP 403 for https://wellfound.com/role/r/intern
+2025-05-29 22:24:32,450 - WARNING - HTTP 403 for https://wellfound.com/role/r/intern
+2025-05-29 22:24:35,393 - WARNING - HTTP 403 for https://wellfound.com/role/r/intern
+2025-05-29 22:24:37,444 - ERROR - Failed to fetch https://wellfound.com/role/r/intern after 3 attempts
+2025-05-29 22:24:41,309 - INFO - Checking GitHub Jobs (via companies) for new internships...
+2025-05-29 22:24:53,259 - ERROR - Failed to fetch https://github.com/search?q=internship+software&type=repositories after 3 attempts
+2025-05-29 22:24:56,468 - INFO - Checking RemoteOK Internships for new internships...
+2025-05-29 22:25:12,211 - ERROR - Failed to fetch https://remoteok.io/remote-intern-jobs after 3 attempts
+2025-05-29 22:25:15,103 - INFO - Checking Google careers page for new internships...
+2025-05-29 22:25:15,104 - ERROR - Error checking Google: 'url'
+2025-05-29 22:25:19,608 - INFO - Checking Microsoft careers page for new internships...
+2025-05-29 22:25:19,608 - ERROR - Error checking Microsoft: 'url'
+2025-05-29 22:25:23,184 - INFO - Checking Amazon careers page for new internships...
+2025-05-29 22:25:23,185 - ERROR - Error checking Amazon: 'url'
+2025-05-29 22:25:25,364 - INFO - Checking Meta careers page for new internships...
+2025-05-29 22:25:25,364 - ERROR - Error checking Meta: 'url'
+2025-05-29 22:25:30,036 - INFO -  Check complete. No new internships found.
+2025-05-29 22:25:30,037 - INFO - ==================================================
+2025-05-29 22:27:19,421 - INFO - 👋 Monitor stopped by user
+2025-05-29 22:27:19,422 - INFO - Database connection closed
+2025-05-29 22:27:19,426 - INFO - HTTP session closed

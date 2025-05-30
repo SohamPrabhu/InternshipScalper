@@ -45,12 +45,16 @@ class InternshipMoniter:
 
         adapter = HTTPAdapter(max_retries=retry_strategy)
         session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
             'Accept-Encoding': 'gzip, deflate',
+            'DNT': '1',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none'
         })
         return session
 
@@ -138,7 +142,7 @@ class InternshipMoniter:
         try:
             response = self.session.get(url, timeout=30)
             if response.status_code == 200:
-                soup = BeautifulSoup(response.txt,'html.parser')
+                soup = BeautifulSoup(response.text,'html.parser')
                 elements = soup.select(selector)
                 logging.info(f"Selector test for {description}: found {len(elements)} elements with '{selector}'")
                 return len(elements) > 0
@@ -375,7 +379,7 @@ class InternshipMoniter:
             response = self._make_request_with_retry(job_board['url'])
             if not response:
                 return []
-            soup = BeautifulSoup(response.text, 'htmlparser')
+            soup = BeautifulSoup(response.text, 'html.parser')
             parsed_url = urlparse(job_board['url'])
             base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
 

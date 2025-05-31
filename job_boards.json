@@ -1,93 +1,15 @@
 [
   {
-    "name": "Indeed",
-    "url": "https://www.indeed.com/jobs?q=software+intern&l=&fromage=3&sort=date",
-    "type": "indeed",
-    "selectors": {
-      "listings": "[data-jk]",
-      "title": "[data-testid='job-title'] a span",
-      "company": "[data-testid='company-name']",
-      "link": "[data-testid='job-title'] a",
-      "location": "[data-testid='job-location']",
-      "description": "[data-testid='job-snippet']"
-    },
-    "notes": "Indeed is most reliable for scraping"
-  },
-  {
     "name": "SimplyHired",
-    "url": "https://www.simplyhired.com/search?q=software+intern&l=&fdb=3",
+    "url": "https://www.simplyhired.com/search?q=software+intern&l=20148&job=szma2Kb1PmcF85vEH1KfQuFdouYoqhJIyM1BXnsh3UrovWpNLkmJ2g&s=d&sr=50",
     "type": "simplyhired", 
     "selectors": {
       "listings": "[data-testid='searchSerpJob']",
-      "title": "[data-testid='searchSerpJobTitle']",
-      "company": "[data-testid='searchSerpJobCompanyName']",
-      "link": "[data-testid='searchSerpJobTitle'] a",
-      "location": "[data-testid='searchSerpJobLocation']"
+      "title": "[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a",
+      "company": "[data-testid='companyName'], .SerpJob-companyName, .jobposting-company",
+      "link": "[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a",
+      "location": "[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location"
     },
-    "notes": "Good alternative to Indeed"
-  },
-  {
-    "name": "ZipRecruiter",
-    "url": "https://www.ziprecruiter.com/jobs-search?search=software+intern&location=&days=3",
-    "type": "ziprecruiter",
-    "selectors": {
-      "listings": ".job_content",
-      "title": ".job_link",
-      "company": ".company_name",
-      "link": ".job_link",
-      "location": ".location"
-    },
-    "notes": "Another reliable job board"
-  },
-  {
-    "name": "Dice Tech Jobs",
-    "url": "https://www.dice.com/jobs?q=software%20intern&location=&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=THREE",
-    "type": "dice",
-    "selectors": {
-      "listings": "[data-testid='search-result-card']",
-      "title": "[data-testid='job-title']",
-      "company": "[data-testid='company-name']", 
-      "link": "[data-testid='job-title'] a",
-      "location": "[data-testid='job-location']"
-    },
-    "notes": "Tech-focused job board"
-  },
-  {
-    "name": "AngelList (Wellfound)",
-    "url": "https://wellfound.com/role/r/intern",
-    "type": "angellist",
-    "selectors": {
-      "listings": "[data-test='StartupResult']",
-      "title": "[data-test='JobTitle']",
-      "company": "[data-test='StartupNameLink']",
-      "link": "[data-test='JobTitle'] a",
-      "location": "[data-test='JobLocation']"
-    },
-    "notes": "Startup-focused positions"
-  },
-  {
-    "name": "GitHub Jobs (via companies)",
-    "url": "https://github.com/search?q=internship+software&type=repositories",
-    "type": "github",
-    "selectors": {
-      "listings": ".Box-row",
-      "title": ".v-align-middle",
-      "company": ".text-normal",
-      "link": ".v-align-middle a"
-    },
-    "notes": "Alternative approach - look for company job repos"
-  },
-  {
-    "name": "RemoteOK Internships",
-    "url": "https://remoteok.io/remote-intern-jobs",
-    "type": "remoteok",
-    "selectors": {
-      "listings": ".job",
-      "title": ".companyLink h2",
-      "company": ".company h3",
-      "link": ".companyLink",
-      "location": ".location"
-    },
-    "notes": "Remote internship opportunities"
+    "notes": "Updated selectors with fallbacks"
   }
 ]

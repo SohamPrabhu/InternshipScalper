@@ -1,13 +1,13 @@
 [
   {
     "name": "Google",
-    "careers_url": "https://careers.google.com/jobs/results/?q=intern",
+    "careers_url": "https://www.google.com/about/careers/applications/jobs/results/?q=intern&degree=PURSUING_DEGREE",
     "selectors": {
-      "listings": "[data-category='jobs'] .gc-card",
-      "title": ".gc-card__title",
-      "company": ".gc-card__company", 
-      "link": "a",
-      "location": ".gc-card__location"
+      "listings": ".lLd3Je",
+      "title": ".QJPWVe",
+      "company": ".l103df", 
+      "link": "a.WpHeLc",
+      "location": ".r0wTof"
     }
   },
   {

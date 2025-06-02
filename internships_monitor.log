@@ -1173,3 +1173,253 @@
 2025-05-30 23:34:09,497 - INFO - 👋 Monitor stopped by user
 2025-05-30 23:34:09,507 - INFO - Database connection closed
 2025-05-30 23:34:09,520 - INFO - HTTP session closed
+2025-06-01 21:41:47,098 - INFO - Loaded configuration from config.ini
+2025-06-01 21:41:47,100 - INFO - Database initialized successfully
+2025-06-01 21:41:47,101 - INFO - Loaded 1 job boards from job_boards.json
+2025-06-01 21:41:47,101 - INFO - Loaded 4 companies from companies.json
+2025-06-01 21:41:47,101 - INFO - Testing all CSS selectors...
+2025-06-01 21:41:47,101 - INFO - Testing selectors for SimplyHired...
+2025-06-01 21:41:47,653 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-06-01 21:41:48,538 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 21:41:49,447 - INFO - Selector test for SimplyHired company: found 20 elements with '[data-testid='companyName'], .SerpJob-companyName, .jobposting-company'
+2025-06-01 21:41:50,314 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 21:41:51,008 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location'
+2025-06-01 21:41:54,562 - INFO - Testing selectors for Google...
+2025-06-01 21:41:54,913 - INFO - Selector test for Google listings: found 5 elements with '.lLd3Je'
+2025-06-01 21:41:55,180 - INFO - Selector test for Google title: found 5 elements with '.QJPWVe'
+2025-06-01 21:41:55,428 - INFO - Selector test for Google company: found 5 elements with '.l103df'
+2025-06-01 21:41:55,674 - INFO - Selector test for Google link: found 6 elements with 'a.WpHeLc'
+2025-06-01 21:41:55,967 - INFO - Selector test for Google location: found 18 elements with '.r0wTof'
+2025-06-01 21:42:01,893 - INFO - Testing selectors for Microsoft...
+2025-06-01 21:42:02,586 - INFO - Selector test for Microsoft listings: found 0 elements with '.ms-List-item'
+2025-06-01 21:42:02,586 - WARNING - Main listings selector failed for Microsoft - this job board may not work
+2025-06-01 21:42:10,172 - INFO - Testing selectors for Amazon...
+2025-06-01 21:42:10,676 - INFO - Selector test for Amazon listings: found 0 elements with '.job-tile'
+2025-06-01 21:42:10,677 - WARNING - Main listings selector failed for Amazon - this job board may not work
+2025-06-01 21:42:13,844 - INFO - Testing selectors for Meta...
+2025-06-01 21:42:14,645 - INFO - Selector test for Meta listings: found 0 elements with '[data-testid='job-item']'
+2025-06-01 21:42:14,645 - WARNING - Main listings selector failed for Meta - this job board may not work
+2025-06-01 21:42:18,335 - INFO - 🚀 Starting internship monitoring every 90 minutes
+2025-06-01 21:42:18,336 - INFO - 📧 Notifications will be sent to: prabhusoham151@gmail.com
+2025-06-01 21:42:18,336 - INFO - ==================================================
+2025-06-01 21:42:18,336 - INFO - Starting internship check cycle
+2025-06-01 21:42:18,336 - INFO - ==================================================
+2025-06-01 21:42:18,336 - INFO - Checking SimplyHired for new internships...
+2025-06-01 21:42:19,517 - INFO - Found 20 potential listings on SimplyHired
+2025-06-01 21:42:34,118 - INFO - Saved new job to database: Cyber Software Engineering Intern - Summer 2026 at Lockheed Martin
+2025-06-01 21:42:34,118 - INFO - New relevant internship found: Cyber Software Engineering Intern - Summer 2026 at Lockheed Martin
+2025-06-01 21:42:38,113 - INFO - Saved new job to database: 2025 Intern - Software - Platform Integration at Forterra
+2025-06-01 21:42:38,113 - INFO - New relevant internship found: 2025 Intern - Software - Platform Integration at Forterra
+2025-06-01 21:42:38,113 - INFO - Found 2 new relevant internships on SimplyHired
+2025-06-01 21:42:42,748 - INFO - Checking Google careers page for new internships...
+2025-06-01 21:42:42,996 - INFO - Found 5 potential listings on Google
+2025-06-01 21:42:42,998 - INFO - Found 0 new relevant internships on Google
+2025-06-01 21:42:49,442 - INFO - Checking Microsoft careers page for new internships...
+2025-06-01 21:42:49,829 - INFO - Found 0 potential listings on Microsoft
+2025-06-01 21:42:49,829 - INFO - Found 0 new relevant internships on Microsoft
+2025-06-01 21:42:53,333 - INFO - Checking Amazon careers page for new internships...
+2025-06-01 21:42:53,700 - INFO - Found 0 potential listings on Amazon
+2025-06-01 21:42:53,701 - INFO - Found 0 new relevant internships on Amazon
+2025-06-01 21:42:56,956 - INFO - Checking Meta careers page for new internships...
+2025-06-01 21:42:57,627 - INFO - Found 0 potential listings on Meta
+2025-06-01 21:42:57,628 - INFO - Found 0 new relevant internships on Meta
+2025-06-01 21:43:03,815 - ERROR - Email authentication failed - check credentials
+2025-06-01 21:43:03,815 - INFO - ✅ Check complete. Found 2 new internships!
+2025-06-01 21:43:03,815 - INFO - ==================================================
+2025-06-01 21:55:21,373 - INFO - 👋 Monitor stopped by user
+2025-06-01 21:55:21,377 - INFO - Database connection closed
+2025-06-01 21:55:21,381 - INFO - HTTP session closed
+2025-06-01 22:17:08,644 - INFO - Loaded configuration from config.ini
+2025-06-01 22:17:08,646 - INFO - Database initialized successfully
+2025-06-01 22:17:08,646 - INFO - Loaded 1 job boards from job_boards.json
+2025-06-01 22:17:08,646 - INFO - Loaded 4 companies from companies.json
+2025-06-01 22:17:08,647 - INFO - Testing all CSS selectors...
+2025-06-01 22:17:08,647 - INFO - Testing selectors for SimplyHired...
+2025-06-01 22:17:09,905 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-06-01 22:17:10,645 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:17:11,176 - INFO - Selector test for SimplyHired company: found 20 elements with '[data-testid='companyName'], .SerpJob-companyName, .jobposting-company'
+2025-06-01 22:17:11,940 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:17:12,391 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location'
+2025-06-01 22:17:18,890 - INFO - Testing selectors for Google...
+2025-06-01 22:17:19,221 - INFO - Selector test for Google listings: found 5 elements with '.lLd3Je'
+2025-06-01 22:17:19,497 - INFO - Selector test for Google title: found 5 elements with '.QJPWVe'
+2025-06-01 22:17:19,741 - INFO - Selector test for Google company: found 5 elements with '.l103df'
+2025-06-01 22:17:19,957 - INFO - Selector test for Google link: found 6 elements with 'a.WpHeLc'
+2025-06-01 22:17:20,181 - INFO - Selector test for Google location: found 18 elements with '.r0wTof'
+2025-06-01 22:17:26,213 - INFO - Testing selectors for Microsoft...
+2025-06-01 22:17:26,985 - INFO - Selector test for Microsoft listings: found 0 elements with '.ms-List-page'
+2025-06-01 22:17:26,986 - WARNING - Main listings selector failed for Microsoft - this job board may not work
+2025-06-01 22:17:32,923 - INFO - Testing selectors for Amazon...
+2025-06-01 22:17:33,353 - INFO - Selector test for Amazon listings: found 0 elements with '.job-tile'
+2025-06-01 22:17:33,354 - WARNING - Main listings selector failed for Amazon - this job board may not work
+2025-06-01 22:17:36,176 - INFO - Monitor stopped by user
+2025-06-01 22:18:08,392 - INFO - Loaded configuration from config.ini
+2025-06-01 22:18:08,392 - INFO - Database initialized successfully
+2025-06-01 22:18:08,392 - INFO - Loaded 1 job boards from job_boards.json
+2025-06-01 22:18:08,392 - INFO - Loaded 4 companies from companies.json
+2025-06-01 22:18:08,393 - INFO - Testing all CSS selectors...
+2025-06-01 22:18:08,393 - INFO - Testing selectors for SimplyHired...
+2025-06-01 22:18:09,116 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-06-01 22:18:10,103 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:18:10,654 - INFO - Selector test for SimplyHired company: found 20 elements with '[data-testid='companyName'], .SerpJob-companyName, .jobposting-company'
+2025-06-01 22:18:11,295 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:18:11,882 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location'
+2025-06-01 22:18:17,553 - INFO - Testing selectors for Google...
+2025-06-01 22:18:17,905 - INFO - Selector test for Google listings: found 5 elements with '.lLd3Je'
+2025-06-01 22:18:18,130 - INFO - Selector test for Google title: found 5 elements with '.QJPWVe'
+2025-06-01 22:18:18,403 - INFO - Selector test for Google company: found 5 elements with '.l103df'
+2025-06-01 22:18:18,661 - INFO - Selector test for Google link: found 6 elements with 'a.WpHeLc'
+2025-06-01 22:18:18,913 - INFO - Selector test for Google location: found 18 elements with '.r0wTof'
+2025-06-01 22:18:25,726 - INFO - Testing selectors for Microsoft...
+2025-06-01 22:18:26,302 - INFO - Selector test for Microsoft listings: found 0 elements with '.ms-List'
+2025-06-01 22:18:26,302 - WARNING - Main listings selector failed for Microsoft - this job board may not work
+2025-06-01 22:18:33,230 - INFO - Testing selectors for Amazon...
+2025-06-01 22:18:33,669 - INFO - Selector test for Amazon listings: found 0 elements with '.job-tile'
+2025-06-01 22:18:33,669 - WARNING - Main listings selector failed for Amazon - this job board may not work
+2025-06-01 22:18:38,986 - INFO - Testing selectors for Meta...
+2025-06-01 22:18:39,517 - INFO - Selector test for Meta listings: found 0 elements with '[data-testid='job-item']'
+2025-06-01 22:18:39,517 - WARNING - Main listings selector failed for Meta - this job board may not work
+2025-06-01 22:18:44,507 - INFO - 🚀 Starting internship monitoring every 90 minutes
+2025-06-01 22:18:44,507 - INFO - 📧 Notifications will be sent to: prabhusoham151@gmail.com
+2025-06-01 22:18:44,507 - INFO - ==================================================
+2025-06-01 22:18:44,507 - INFO - Starting internship check cycle
+2025-06-01 22:18:44,507 - INFO - ==================================================
+2025-06-01 22:18:44,507 - INFO - Checking SimplyHired for new internships...
+2025-06-01 22:18:44,944 - INFO - Found 20 potential listings on SimplyHired
+2025-06-01 22:19:03,183 - INFO - Found 0 new relevant internships on SimplyHired
+2025-06-01 22:19:09,787 - INFO - Checking Google careers page for new internships...
+2025-06-01 22:19:10,079 - INFO - Found 5 potential listings on Google
+2025-06-01 22:19:10,081 - INFO - Found 0 new relevant internships on Google
+2025-06-01 22:19:18,052 - INFO - Checking Microsoft careers page for new internships...
+2025-06-01 22:19:18,427 - INFO - Found 0 potential listings on Microsoft
+2025-06-01 22:19:18,427 - INFO - Found 0 new relevant internships on Microsoft
+2025-06-01 22:19:23,948 - INFO - Checking Amazon careers page for new internships...
+2025-06-01 22:19:24,425 - INFO - Found 0 potential listings on Amazon
+2025-06-01 22:19:24,425 - INFO - Found 0 new relevant internships on Amazon
+2025-06-01 22:19:28,997 - INFO - Checking Meta careers page for new internships...
+2025-06-01 22:19:29,701 - INFO - Found 0 potential listings on Meta
+2025-06-01 22:19:29,701 - INFO - Found 0 new relevant internships on Meta
+2025-06-01 22:19:35,778 - INFO - ℹ️  Check complete. No new internships found.
+2025-06-01 22:19:35,779 - INFO - ==================================================
+2025-06-01 22:20:33,538 - INFO - 👋 Monitor stopped by user
+2025-06-01 22:20:33,541 - INFO - Database connection closed
+2025-06-01 22:20:33,546 - INFO - HTTP session closed
+2025-06-01 22:20:35,468 - INFO - Loaded configuration from config.ini
+2025-06-01 22:20:35,468 - INFO - Database initialized successfully
+2025-06-01 22:20:35,468 - INFO - Loaded 1 job boards from job_boards.json
+2025-06-01 22:20:35,468 - INFO - Loaded 4 companies from companies.json
+2025-06-01 22:20:35,468 - INFO - Testing all CSS selectors...
+2025-06-01 22:20:35,468 - INFO - Testing selectors for SimplyHired...
+2025-06-01 22:20:36,049 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-06-01 22:20:37,703 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:20:38,422 - INFO - Selector test for SimplyHired company: found 20 elements with '[data-testid='companyName'], .SerpJob-companyName, .jobposting-company'
+2025-06-01 22:20:39,336 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:20:39,895 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location'
+2025-06-01 22:20:43,889 - INFO - Testing selectors for Google...
+2025-06-01 22:20:44,229 - INFO - Selector test for Google listings: found 5 elements with '.lLd3Je'
+2025-06-01 22:20:44,514 - INFO - Selector test for Google title: found 5 elements with '.QJPWVe'
+2025-06-01 22:20:44,731 - INFO - Selector test for Google company: found 5 elements with '.l103df'
+2025-06-01 22:20:44,976 - INFO - Selector test for Google link: found 6 elements with 'a.WpHeLc'
+2025-06-01 22:20:45,265 - INFO - Selector test for Google location: found 18 elements with '.r0wTof'
+2025-06-01 22:20:53,201 - INFO - Testing selectors for Microsoft...
+2025-06-01 22:20:53,631 - INFO - Selector test for Microsoft listings: found 0 elements with '.ms-List-cell'
+2025-06-01 22:20:53,631 - WARNING - Main listings selector failed for Microsoft - this job board may not work
+2025-06-01 22:20:58,986 - INFO - Testing selectors for Amazon...
+2025-06-01 22:20:59,485 - INFO - Selector test for Amazon listings: found 0 elements with '.job-tile'
+2025-06-01 22:20:59,485 - WARNING - Main listings selector failed for Amazon - this job board may not work
+2025-06-01 22:21:02,628 - INFO - Testing selectors for Meta...
+2025-06-01 22:21:03,620 - INFO - Selector test for Meta listings: found 0 elements with '[data-testid='job-item']'
+2025-06-01 22:21:03,620 - WARNING - Main listings selector failed for Meta - this job board may not work
+2025-06-01 22:21:06,690 - INFO - 🚀 Starting internship monitoring every 90 minutes
+2025-06-01 22:21:06,693 - INFO - 📧 Notifications will be sent to: prabhusoham151@gmail.com
+2025-06-01 22:21:06,693 - INFO - ==================================================
+2025-06-01 22:21:06,694 - INFO - Starting internship check cycle
+2025-06-01 22:21:06,694 - INFO - ==================================================
+2025-06-01 22:21:06,694 - INFO - Checking SimplyHired for new internships...
+2025-06-01 22:21:07,836 - INFO - Found 20 potential listings on SimplyHired
+2025-06-01 22:21:10,469 - INFO - Monitor stopped by user
+2025-06-01 22:22:03,356 - INFO - Loaded configuration from config.ini
+2025-06-01 22:22:03,356 - INFO - Database initialized successfully
+2025-06-01 22:22:03,356 - INFO - Loaded 1 job boards from job_boards.json
+2025-06-01 22:22:03,356 - INFO - Loaded 4 companies from companies.json
+2025-06-01 22:22:03,357 - INFO - Testing all CSS selectors...
+2025-06-01 22:22:03,357 - INFO - Testing selectors for SimplyHired...
+2025-06-01 22:22:04,076 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-06-01 22:22:04,633 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:22:05,254 - INFO - Selector test for SimplyHired company: found 20 elements with '[data-testid='companyName'], .SerpJob-companyName, .jobposting-company'
+2025-06-01 22:22:05,764 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:22:06,519 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location'
+2025-06-01 22:22:13,326 - INFO - Testing selectors for Google...
+2025-06-01 22:22:13,649 - INFO - Selector test for Google listings: found 5 elements with '.lLd3Je'
+2025-06-01 22:22:13,912 - INFO - Selector test for Google title: found 5 elements with '.QJPWVe'
+2025-06-01 22:22:14,209 - INFO - Selector test for Google company: found 5 elements with '.l103df'
+2025-06-01 22:22:14,452 - INFO - Selector test for Google link: found 6 elements with 'a.WpHeLc'
+2025-06-01 22:22:14,699 - INFO - Selector test for Google location: found 18 elements with '.r0wTof'
+2025-06-01 22:22:21,080 - INFO - Testing selectors for Microsoft...
+2025-06-01 22:22:21,312 - INFO - Selector test for Microsoft listings: found 0 elements with '.ms-List'
+2025-06-01 22:22:21,312 - WARNING - Main listings selector failed for Microsoft - this job board may not work
+2025-06-01 22:22:24,399 - INFO - Testing selectors for Amazon...
+2025-06-01 22:22:24,793 - INFO - Selector test for Amazon listings: found 0 elements with '.job-tile'
+2025-06-01 22:22:24,793 - WARNING - Main listings selector failed for Amazon - this job board may not work
+2025-06-01 22:22:28,989 - INFO - Testing selectors for Meta...
+2025-06-01 22:22:29,506 - INFO - Selector test for Meta listings: found 0 elements with '[data-testid='job-item']'
+2025-06-01 22:22:29,506 - WARNING - Main listings selector failed for Meta - this job board may not work
+2025-06-01 22:22:35,237 - INFO - 🚀 Starting internship monitoring every 90 minutes
+2025-06-01 22:22:35,250 - INFO - 📧 Notifications will be sent to: prabhusoham151@gmail.com
+2025-06-01 22:22:35,250 - INFO - ==================================================
+2025-06-01 22:22:35,250 - INFO - Starting internship check cycle
+2025-06-01 22:22:35,251 - INFO - ==================================================
+2025-06-01 22:22:35,251 - INFO - Checking SimplyHired for new internships...
+2025-06-01 22:22:35,831 - INFO - Found 20 potential listings on SimplyHired
+2025-06-01 22:22:42,844 - INFO - Monitor stopped by user
+2025-06-01 22:26:59,588 - INFO - Loaded configuration from config.ini
+2025-06-01 22:26:59,588 - INFO - Database initialized successfully
+2025-06-01 22:26:59,589 - INFO - Loaded 1 job boards from job_boards.json
+2025-06-01 22:26:59,589 - INFO - Loaded 4 companies from companies.json
+2025-06-01 22:26:59,589 - INFO - Testing all CSS selectors...
+2025-06-01 22:26:59,589 - INFO - Testing selectors for SimplyHired...
+2025-06-01 22:27:00,383 - INFO - Selector test for SimplyHired listings: found 20 elements with '[data-testid='searchSerpJob']'
+2025-06-01 22:27:00,843 - INFO - Selector test for SimplyHired title: found 20 elements with '[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:27:01,505 - INFO - Selector test for SimplyHired company: found 20 elements with '[data-testid='companyName'], .SerpJob-companyName, .jobposting-company'
+2025-06-01 22:27:02,901 - INFO - Selector test for SimplyHired link: found 20 elements with '[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a'
+2025-06-01 22:27:03,758 - INFO - Selector test for SimplyHired location: found 20 elements with '[data-testid='searchSerpJobLocation'], .SerpJob-location, .jobposting-location'
+2025-06-01 22:27:11,185 - INFO - Testing selectors for Google...
+2025-06-01 22:27:11,594 - INFO - Selector test for Google listings: found 5 elements with '.lLd3Je'
+2025-06-01 22:27:11,878 - INFO - Selector test for Google title: found 5 elements with '.QJPWVe'
+2025-06-01 22:27:12,173 - INFO - Selector test for Google company: found 5 elements with '.l103df'
+2025-06-01 22:27:12,460 - INFO - Selector test for Google link: found 6 elements with 'a.WpHeLc'
+2025-06-01 22:27:12,752 - INFO - Selector test for Google location: found 18 elements with '.r0wTof'
+2025-06-01 22:27:20,671 - INFO - Testing selectors for Microsoft...
+2025-06-01 22:27:20,941 - INFO - Selector test for Microsoft listings: found 0 elements with '.ms-List'
+2025-06-01 22:27:20,941 - WARNING - Main listings selector failed for Microsoft - this job board may not work
+2025-06-01 22:27:28,588 - INFO - Testing selectors for Amazon...
+2025-06-01 22:27:29,010 - INFO - Selector test for Amazon listings: found 0 elements with '.job-tile-lists.col-12.mt-3.mt-md-0 .job-tile'
+2025-06-01 22:27:29,010 - WARNING - Main listings selector failed for Amazon - this job board may not work
+2025-06-01 22:27:35,572 - INFO - Testing selectors for Meta...
+2025-06-01 22:27:36,426 - INFO - Selector test for Meta listings: found 0 elements with '[data-testid='job-item']'
+2025-06-01 22:27:36,426 - WARNING - Main listings selector failed for Meta - this job board may not work
+2025-06-01 22:27:41,056 - INFO - 🚀 Starting internship monitoring every 90 minutes
+2025-06-01 22:27:41,057 - INFO - 📧 Notifications will be sent to: prabhusoham151@gmail.com
+2025-06-01 22:27:41,057 - INFO - ==================================================
+2025-06-01 22:27:41,057 - INFO - Starting internship check cycle
+2025-06-01 22:27:41,057 - INFO - ==================================================
+2025-06-01 22:27:41,057 - INFO - Checking SimplyHired for new internships...
+2025-06-01 22:27:41,683 - INFO - Found 20 potential listings on SimplyHired
+2025-06-01 22:28:03,690 - INFO - Found 0 new relevant internships on SimplyHired
+2025-06-01 22:28:10,470 - INFO - Checking Google careers page for new internships...
+2025-06-01 22:28:10,740 - INFO - Found 5 potential listings on Google
+2025-06-01 22:28:10,744 - INFO - Found 0 new relevant internships on Google
+2025-06-01 22:28:14,546 - INFO - Checking Microsoft careers page for new internships...
+2025-06-01 22:28:14,906 - INFO - Found 0 potential listings on Microsoft
+2025-06-01 22:28:14,907 - INFO - Found 0 new relevant internships on Microsoft
+2025-06-01 22:28:19,433 - INFO - Checking Amazon careers page for new internships...
+2025-06-01 22:28:19,818 - INFO - Found 0 potential listings on Amazon
+2025-06-01 22:28:19,819 - INFO - Found 0 new relevant internships on Amazon
+2025-06-01 22:28:22,935 - INFO - Checking Meta careers page for new internships...
+2025-06-01 22:28:24,553 - INFO - Found 0 potential listings on Meta
+2025-06-01 22:28:24,553 - INFO - Found 0 new relevant internships on Meta
+2025-06-01 22:28:31,931 - INFO - ℹ️  Check complete. No new internships found.
+2025-06-01 22:28:31,932 - INFO - ==================================================
+2025-06-01 22:44:21,649 - INFO - 👋 Monitor stopped by user
+2025-06-01 22:44:21,654 - INFO - Database connection closed
+2025-06-01 22:44:21,658 - INFO - HTTP session closed

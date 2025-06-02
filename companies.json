@@ -12,20 +12,20 @@
   },
   {
     "name": "Microsoft",
-    "careers_url": "https://careers.microsoft.com/students/us/en/search-results?keywords=intern",
+    "careers_url": "https://jobs.careers.microsoft.com/global/en/search?q=software&lc=United%20States&exp=Students%20and%20graduates&et=Internship&l=en_us&pg=1&pgSz=20&o=Recent&flt=true",
     "selectors": {
-      "listings": ".ms-List-item",
-      "title": "[data-automation-id='jobTitle']",
-      "company": "[data-automation-id='company']",
+      "listings": ".ms-List",
+      "title": ".MZGzlrn8gfgSs8TZHhv2",
+      "company": "a.uhfLogo",
       "link": "a",
-      "location": "[data-automation-id='location']"
+      "location": ".MZGzlrn8gfgSs8TZHhv2"
     }
   },
   {
     "name": "Amazon",
-    "careers_url": "https://www.amazon.jobs/en/search?base_query=intern&loc_query=",
+    "careers_url": "https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&country%5B%5D=USA&business_category%5B%5D=student-programs&category_type=studentprograms&distanceType=Mi&radius=24km&latitude=&longitude=&loc_group_id=&loc_query=&base_query=software&city=&country=&region=&county=&query_options=&",
     "selectors": {
-      "listings": ".job-tile",
+      "listings": ".job-tile-lists.col-12.mt-3.mt-md-0 .job-tile",
       "title": ".job-title",
       "company": ".company-name",
       "link": "a",

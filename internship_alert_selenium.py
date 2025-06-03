@@ -173,7 +173,13 @@ def main():
                         if not job_exists(conn,job['url']):
                             if insert_job(conn,job):
                                 send_email(job)
-
+                                logging.info(f"New internship inserted: {job['title']} at {job['company']}")
+                            else:
+                                logging.error(f"Failed to insert job: {job['title']} at {job['company']}")
+                        else:
+                            logging.info(f"Duplicate found, not inserting: {job['title']} at {job['company']}")
+            logging.info(f"Scraping cycle complete. Sleeping {WAIT_TIME_SECONDS / 60} minutes.")
+            time.sleep(WAIT_TIME_SECONDS)
     except KeyboardInterrupt:
         logging.info("Shutdown requested. Exiting.")
     finally:

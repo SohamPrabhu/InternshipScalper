@@ -90,6 +90,30 @@ def job_exists(conn,url):
     with conn.cursor() as cursor:
         cursor.excute("SELECT 1 FROM internships WHERE url = %s;", (url,))
         return cursor.fetchtone() is not None
+def insert_job(conn,job):
+    with conn.cusor() as cursor:
+        try:
+            cursor.execute('''
+                INSERT INTO internships (source, title, company, url, description, location, posted_date, discovered_date)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (url) DO NOTHING;
+            ''', (
+                job['source'],
+                job['title'],
+                job['company'],
+                job['url'],
+                job['description'],
+                job['location'],
+                job['posted_date'],
+                job['discovered_date']
+            ))
+            if cursor.rowcount >0:
+                conn.commit()
+                return True
+        except Exception as e:
+            logging.error(f"Error inserting job into db: {str(e).replace(POSTGRES_PASSWORD, '[CENSORED]')}")
+        return False
+
 def get_pg_conn():
     return psycopg2.connect(host=POSTGRES_HOST, port=POSTGRES_PORT, dbname=POSTGRES_DB,user=POSTGRES_USER,password=POSTGRES_PASSWORD)
 

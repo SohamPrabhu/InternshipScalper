@@ -86,7 +86,10 @@ class InternshipScraper:
             logging.error(f"Error checking {company['name']}: {e}")
         return job
 
-
+def job_exists(conn,url):
+    with conn.cursor() as cursor:
+        cursor.excute("SELECT 1 FROM internships WHERE url = %s;", (url,))
+        return cursor.fetchtone() is not None
 def get_pg_conn():
     return psycopg2.connect(host=POSTGRES_HOST, port=POSTGRES_PORT, dbname=POSTGRES_DB,user=POSTGRES_USER,password=POSTGRES_PASSWORD)
 
@@ -119,6 +122,10 @@ def main():
             with get_pg_conn as conn:
                 for company in companies:
                     jobs = scraper.scrape_company(company)
+                    for job in jobs:
+                        if not job_exists(conn,job['url']):
+                            if insert_job(conn,job):
+
     except KeyboardInterrupt:
         logging.info("Shutdown requested. Exiting.")
     finally:

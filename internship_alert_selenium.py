@@ -85,6 +85,29 @@ class InternshipScraper:
         except Exception as e:
             logging.error(f"Error checking {company['name']}: {e}")
         return job
+def send_email(job):
+    msg = EmailMessage()
+    msg['Subject'] = EMAIL_SUBJECT
+    msg['From'] = EMAIL_FROM
+    msg['To'] = EMAIL_TO
+    msg.set_content(
+        f"New internship found\n\n"
+        f"Source: {job['source']}\n"
+        f"Title: {job['title']}\n"
+        f"Company: {job['company']}\n"
+        f"Location: {job['location']}\n"
+        f"URL: {job['url']}\n"
+        f"Description: {job['description']}\n"
+        f"Posted Date: {job['posted_date']}\n"
+        f"Discovered Date: {job['discovered_date']}\n"
+    )
+    try:
+        with smtplib.SMTP_SSL(EMAIL_SMTP_SERVER,EMAIL_SMTP_PORT) as smtp:
+            smtp.login(EMAIL_FROM, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+        logging.info(f"Sent email for new internship: {job['title']} at {job['company']}")
+    except Exception as e:
+        logging.error(f"Failed to send email for {job['title']} at {job['company']}: {str(e).replace(EMAIL_PASSWORD, '[CENSORED]')}")
 
 def job_exists(conn,url):
     with conn.cursor() as cursor:
@@ -149,6 +172,7 @@ def main():
                     for job in jobs:
                         if not job_exists(conn,job['url']):
                             if insert_job(conn,job):
+                                send_email(job)
 
     except KeyboardInterrupt:
         logging.info("Shutdown requested. Exiting.")

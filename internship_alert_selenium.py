@@ -40,6 +40,52 @@ class InternshipScraper:
 
     def close(self):
         self.driver.quit()
+    def scrape_company(self,company):
+        logging.info(f"Checking {company['name']} careers page...")
+        jobs = []
+        try:
+            self.driver.get(company['careers_url'])
+            time.sleep(2)
+            listings = self.driver.find_elements(By.CSS_SELECTOR, company['selectors']['listings'])
+            logging.info(f"Found {len(listings)} potential listings on {company['name']}")
+            for idx,listing in enumerate(listings):
+                try:
+                    def get_text(selector):
+                        try:
+                            return listing.find_element(By.CSS_SELECTOR,selector).text.strip()
+                        except Exception:
+                            logging.info(f"Error when trying to get the selector for {selector}")
+                            return ""
+                    def get_attr(selector,attr):
+                        try:
+                            return listing.find_element(By.CSS_SELECTOR,selector).get_attribute(attr)
+                        except Exception:
+                            logging.info(f"Error when trying get the attrbuite for {selector}")
+                            return ""
+                    title = get_text(company['selectors']['title'])
+                    company_name =  company['name']
+                    link = get_attr(company['selectors']['link'], "href")
+                    location = get_text(company['selectors']['location'])
+                    description = ""  #Need to add in if possible descrption is found
+                    posted_date = "" #Same thing for this
+                    discovered_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    job = {
+                        "source": company['name'],
+                        "title": title,
+                        "company": company_name,
+                        "url": link,
+                        "description": description,
+                        "location": location,
+                        "posted_date": posted_date,
+                        "discovered_date": discovered_date,
+                    }
+                    jobs.extend(job)
+                except Exception as e:
+                    logging.error(f"Error extracting job info for listing {idx+1} on {company['name']}: {e}")
+        except Exception as e:
+            logging.error(f"Error checking {company['name']}: {e}")
+        return job
+
 
 def get_pg_conn():
     return psycopg2.connect(host=POSTGRES_HOST, port=POSTGRES_PORT, dbname=POSTGRES_DB,user=POSTGRES_USER,password=POSTGRES_PASSWORD)
@@ -70,6 +116,9 @@ def main():
     try:
         while True:
             logging.info("Starting Scrapping Cycle")
+            with get_pg_conn as conn:
+                for company in companies:
+                    jobs = scraper.scrape_company(company)
     except KeyboardInterrupt:
         logging.info("Shutdown requested. Exiting.")
     finally:

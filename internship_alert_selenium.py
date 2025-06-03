@@ -26,6 +26,18 @@ WAIT_TIME_SECONDS = int(os.environ.get("WAIT_TIME_SECONDS", 1800))
 
 
 
+class InternshipScraper:
+    def __init__(self):
+        option = Options()
+        option.add_argument("--headless")
+        self.driver = webdriver.Chrome(options=option)
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s [%(levelname)s] %(message)s"
+        )
+        logging.info(f"Connecting to Postgres at host={POSTGRES_HOST}, port={POSTGRES_PORT}, db={POSTGRES_DB}, user={POSTGRES_USER}")
+        logging.info(f"Email notifications from {EMAIL_FROM} to {EMAIL_TO} via {EMAIL_SMTP_SERVER}:{EMAIL_SMTP_PORT}")
+
 
 
 def get_pg_conn():

@@ -22,7 +22,6 @@ An automated serverless web scraping application that aggregates internship oppo
 - `requests` - HTTP requests
 - `beautifulsoup4` - HTML parsing
 - `pandas` - Data manipulation
-- `boto3` - AWS SDK
 - `json` - Data serialization
 - `logging` - Log the files
 - `time` - Time Stamp for events
@@ -30,7 +29,6 @@ An automated serverless web scraping application that aggregates internship oppo
 - `Selenium` - Connects to Chrome
 - `Smtplib` - Web
 
-- 
 ## Installation
 
 1. **Clone the repository**

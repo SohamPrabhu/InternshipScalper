@@ -9,6 +9,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import smtplib
 from email.message import EmailMessage
+import logging
+import pandas as pd
+
 
 POSTGRES_HOST = os.environ.get("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = int(os.environ.get("POSTGRES_PORT", 5432))
@@ -25,7 +28,12 @@ EMAIL_SMTP_PORT = int(os.environ.get("EMAIL_SMTP_PORT", 465))
 WAIT_TIME_SECONDS = int(os.environ.get("WAIT_TIME_SECONDS", 1800)) 
 
 
-
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    filename="internship_scraper.log",  
+    filemode="a"                            
+)
 class InternshipScraper:
     def __init__(self):
         option = Options()
@@ -40,7 +48,8 @@ class InternshipScraper:
 
     def close(self):
         self.driver.quit()
-    def scrape_company(self,company):
+
+    def scrape_company(self, company):
         logging.info(f"Checking {company['name']} careers page...")
         jobs = []
         try:
@@ -48,26 +57,26 @@ class InternshipScraper:
             time.sleep(2)
             listings = self.driver.find_elements(By.CSS_SELECTOR, company['selectors']['listings'])
             logging.info(f"Found {len(listings)} potential listings on {company['name']}")
-            for idx,listing in enumerate(listings):
+            for idx, listing in enumerate(listings):
                 try:
                     def get_text(selector):
                         try:
-                            return listing.find_element(By.CSS_SELECTOR,selector).text.strip()
+                            return listing.find_element(By.CSS_SELECTOR, selector).text.strip()
                         except Exception:
                             logging.info(f"Error when trying to get the selector for {selector}")
                             return ""
-                    def get_attr(selector,attr):
+                    def get_attr(selector, attr):
                         try:
-                            return listing.find_element(By.CSS_SELECTOR,selector).get_attribute(attr)
+                            return listing.find_element(By.CSS_SELECTOR, selector).get_attribute(attr)
                         except Exception:
-                            logging.info(f"Error when trying get the attrbuite for {selector}")
+                            logging.info(f"Error when trying get the attribute for {selector}")
                             return ""
                     title = get_text(company['selectors']['title'])
-                    company_name =  company['name']
+                    company_name = company['name']
                     link = get_attr(company['selectors']['link'], "href")
                     location = get_text(company['selectors']['location'])
-                    description = ""  #Need to add in if possible descrption is found
-                    posted_date = "" #Same thing for this
+                    description = ""  # Add if possible
+                    posted_date = ""   # Add if possible
                     discovered_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     job = {
                         "source": company['name'],
@@ -79,12 +88,13 @@ class InternshipScraper:
                         "posted_date": posted_date,
                         "discovered_date": discovered_date,
                     }
-                    jobs.extend(job)
+                    jobs.append(job)  # <-- FIXED HERE
                 except Exception as e:
                     logging.error(f"Error extracting job info for listing {idx+1} on {company['name']}: {e}")
         except Exception as e:
             logging.error(f"Error checking {company['name']}: {e}")
-        return job
+        return jobs  # <-- FIXED HERE
+
 def send_email(job):
     msg = EmailMessage()
     msg['Subject'] = EMAIL_SUBJECT
@@ -102,19 +112,20 @@ def send_email(job):
         f"Discovered Date: {job['discovered_date']}\n"
     )
     try:
-        with smtplib.SMTP_SSL(EMAIL_SMTP_SERVER,EMAIL_SMTP_PORT) as smtp:
+        with smtplib.SMTP_SSL(EMAIL_SMTP_SERVER, EMAIL_SMTP_PORT) as smtp:
             smtp.login(EMAIL_FROM, EMAIL_PASSWORD)
             smtp.send_message(msg)
         logging.info(f"Sent email for new internship: {job['title']} at {job['company']}")
     except Exception as e:
         logging.error(f"Failed to send email for {job['title']} at {job['company']}: {str(e).replace(EMAIL_PASSWORD, '[CENSORED]')}")
 
-def job_exists(conn,url):
+def job_exists(conn, url):
     with conn.cursor() as cursor:
-        cursor.excute("SELECT 1 FROM internships WHERE url = %s;", (url,))
-        return cursor.fetchtone() is not None
-def insert_job(conn,job):
-    with conn.cusor() as cursor:
+        cursor.execute("SELECT 1 FROM internships WHERE url = %s;", (url,))
+        return cursor.fetchone() is not None
+
+def insert_job(conn, job):
+    with conn.cursor() as cursor:
         try:
             cursor.execute('''
                 INSERT INTO internships (source, title, company, url, description, location, posted_date, discovered_date)
@@ -130,7 +141,7 @@ def insert_job(conn,job):
                 job['posted_date'],
                 job['discovered_date']
             ))
-            if cursor.rowcount >0:
+            if cursor.rowcount > 0:
                 conn.commit()
                 return True
         except Exception as e:
@@ -138,7 +149,13 @@ def insert_job(conn,job):
         return False
 
 def get_pg_conn():
-    return psycopg2.connect(host=POSTGRES_HOST, port=POSTGRES_PORT, dbname=POSTGRES_DB,user=POSTGRES_USER,password=POSTGRES_PASSWORD)
+    return psycopg2.connect(
+        host=POSTGRES_HOST,
+        port=POSTGRES_PORT,
+        dbname=POSTGRES_DB,
+        user=POSTGRES_USER,
+        password=POSTGRES_PASSWORD
+    )
 
 def setup_db():
     with get_pg_conn() as conn:
@@ -160,24 +177,27 @@ def setup_db():
 
 def main():
     setup_db()
-    with open(COMPANIES_JSON,"r", encoding="utf-8") as f:
+    with open(COMPANIES_JSON, "r", encoding="utf-8") as f:
         companies = json.load(f)
     scraper = InternshipScraper()
     try:
         while True:
             logging.info("Starting Scrapping Cycle")
-            with get_pg_conn as conn:
+            with get_pg_conn() as conn:
                 for company in companies:
                     jobs = scraper.scrape_company(company)
                     for job in jobs:
-                        if not job_exists(conn,job['url']):
-                            if insert_job(conn,job):
+                        print("DEBUG: job =", job)
+                        if not job_exists(conn, job['url']):  # <-- FIXED HERE
+                            if insert_job(conn, job):
                                 send_email(job)
                                 logging.info(f"New internship inserted: {job['title']} at {job['company']}")
                             else:
                                 logging.error(f"Failed to insert job: {job['title']} at {job['company']}")
                         else:
                             logging.info(f"Duplicate found, not inserting: {job['title']} at {job['company']}")
+                        df = pd.read_sql("SELECT * FROM internships", conn)
+                        df.to_csv("internships.csv", index=False)
             logging.info(f"Scraping cycle complete. Sleeping {WAIT_TIME_SECONDS / 60} minutes.")
             time.sleep(WAIT_TIME_SECONDS)
     except KeyboardInterrupt:

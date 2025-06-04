@@ -1,0 +1,401 @@
+2025-06-03 19:57:34,561 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 19:57:34,561 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 19:57:34,562 [INFO] Starting Scrapping Cycle
+2025-06-03 19:57:34,571 [INFO] Checking Google careers page...
+2025-06-03 19:57:37,399 [INFO] Found 5 potential listings on Google
+2025-06-03 19:57:37,520 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 19:57:37,520 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 19:57:37,520 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 19:57:37,520 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 19:57:37,521 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 19:57:37,521 [INFO] Checking Microsoft careers page...
+2025-06-03 19:57:40,302 [INFO] Found 1 potential listings on Microsoft
+2025-06-03 19:57:40,321 [INFO] Error when trying get the attribute for a
+2025-06-03 19:57:40,504 [ERROR] Failed to send email for Research Intern - High performance and Scalable Database Systems at Microsoft: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6e1cca6sm89708416d6.117 - gsmtp')
+2025-06-03 19:57:40,504 [INFO] New internship inserted: Research Intern - High performance and Scalable Database Systems at Microsoft
+2025-06-03 19:57:40,504 [INFO] Checking Amazon careers page...
+2025-06-03 19:57:43,391 [INFO] Found 10 potential listings on Amazon
+2025-06-03 19:57:43,612 [INFO] Duplicate found, not inserting: [PHD] SDE - Systems, Runtime, and ML Infrastructure (AWS Custom Silicon), Annapurna Labs at Amazon
+2025-06-03 19:57:43,612 [INFO] Duplicate found, not inserting: ML Acceleration / Framework Engineer - Distributed Training & Inference, AWS Neuron, Annapurna Labs, Annapurna Labs at Amazon
+2025-06-03 19:57:43,612 [INFO] Duplicate found, not inserting: SDE I - Systems, Runtime, and ML Infrastructure (AWS Custom Silicon), Annapurna Labs at Amazon
+2025-06-03 19:57:43,613 [INFO] Duplicate found, not inserting: ML Compiler Engineer I, Annapurna Labs at Amazon
+2025-06-03 19:57:43,613 [INFO] Duplicate found, not inserting: [PhD] ML Compiler Engineer - Annapurna Labs, Annapurna Labs at Amazon
+2025-06-03 19:57:43,613 [INFO] Duplicate found, not inserting: [PhD] ML Infrastructure Engineer - Distributed Training, AWS Neuron, Annapurna Labs at Amazon
+2025-06-03 19:57:43,614 [INFO] Duplicate found, not inserting: Machine Learning Chip Architect, Annapurna Labs at Amazon
+2025-06-03 19:57:43,614 [INFO] Duplicate found, not inserting: Software Development Engineer in Test – 2025 (US) at Amazon
+2025-06-03 19:57:43,614 [INFO] Duplicate found, not inserting: Software Development Engineer I 2025 at Amazon
+2025-06-03 19:57:43,615 [INFO] Duplicate found, not inserting: Software Development Engineer I 2025, Redshift at Amazon
+2025-06-03 19:57:43,615 [INFO] Checking Meta careers page...
+2025-06-03 19:57:46,773 [INFO] Found 0 potential listings on Meta
+2025-06-03 19:57:46,774 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 19:59:57,973 [INFO] Shutdown requested. Exiting.
+2025-06-03 19:59:57,982 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104680ef0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/e805e0b998735b82c14438a771f2cc63
+2025-06-03 19:59:57,983 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1046f0aa0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/e805e0b998735b82c14438a771f2cc63
+2025-06-03 19:59:57,984 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1046f0cb0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/e805e0b998735b82c14438a771f2cc63
+2025-06-03 20:02:36,982 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 20:02:36,983 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 20:02:36,983 [INFO] Starting Scrapping Cycle
+2025-06-03 20:02:36,989 [INFO] Checking Google careers page...
+2025-06-03 20:02:39,945 [INFO] Found 5 potential listings on Google
+2025-06-03 20:02:40,250 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e5558sm941138085a.6 - gsmtp')
+2025-06-03 20:02:40,250 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:02:40,399 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a1a78e2sm930384985a.103 - gsmtp')
+2025-06-03 20:02:40,400 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:02:40,557 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a435767a5csm81336151cf.10 - gsmtp')
+2025-06-03 20:02:40,557 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:02:40,702 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a19552dsm927924285a.84 - gsmtp')
+2025-06-03 20:02:40,703 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:02:40,872 [ERROR] Failed to send email for Student Researcher, 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d33ae3sm89271236d6.5 - gsmtp')
+2025-06-03 20:02:40,872 [INFO] New internship inserted: Student Researcher, 2025 at Google
+2025-06-03 20:02:40,872 [INFO] Checking Microsoft careers page...
+2025-06-03 20:02:44,335 [INFO] Found 1 potential listings on Microsoft
+2025-06-03 20:02:44,370 [INFO] Error when trying get the attribute for 
+2025-06-03 20:02:44,522 [ERROR] Failed to send email for Research Intern - High performance and Scalable Database Systems at Microsoft: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a1a78f2sm930089385a.102 - gsmtp')
+2025-06-03 20:02:44,522 [INFO] New internship inserted: Research Intern - High performance and Scalable Database Systems at Microsoft
+2025-06-03 20:02:44,522 [INFO] Checking Amazon careers page...
+2025-06-03 20:02:47,425 [INFO] Found 10 potential listings on Amazon
+2025-06-03 20:02:47,805 [ERROR] Failed to send email for [PHD] SDE - Systems, Runtime, and ML Infrastructure (AWS Custom Silicon), Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0f88a4sm927750185a.31 - gsmtp')
+2025-06-03 20:02:47,805 [INFO] New internship inserted: [PHD] SDE - Systems, Runtime, and ML Infrastructure (AWS Custom Silicon), Annapurna Labs at Amazon
+2025-06-03 20:02:47,960 [ERROR] Failed to send email for ML Acceleration / Framework Engineer - Distributed Training & Inference, AWS Neuron, Annapurna Labs, Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a1951casm934182685a.68 - gsmtp')
+2025-06-03 20:02:47,960 [INFO] New internship inserted: ML Acceleration / Framework Engineer - Distributed Training & Inference, AWS Neuron, Annapurna Labs, Annapurna Labs at Amazon
+2025-06-03 20:02:48,107 [ERROR] Failed to send email for SDE I - Systems, Runtime, and ML Infrastructure (AWS Custom Silicon), Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a43588c8dcsm82591731cf.23 - gsmtp')
+2025-06-03 20:02:48,107 [INFO] New internship inserted: SDE I - Systems, Runtime, and ML Infrastructure (AWS Custom Silicon), Annapurna Labs at Amazon
+2025-06-03 20:02:48,263 [ERROR] Failed to send email for ML Compiler Engineer I, Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e3623sm949384485a.7 - gsmtp')
+2025-06-03 20:02:48,263 [INFO] New internship inserted: ML Compiler Engineer I, Annapurna Labs at Amazon
+2025-06-03 20:02:48,421 [ERROR] Failed to send email for [PhD] ML Compiler Engineer - Annapurna Labs, Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a435772cc9sm81554261cf.15 - gsmtp')
+2025-06-03 20:02:48,422 [INFO] New internship inserted: [PhD] ML Compiler Engineer - Annapurna Labs, Annapurna Labs at Amazon
+2025-06-03 20:02:48,579 [ERROR] Failed to send email for [PhD] ML Infrastructure Engineer - Distributed Training, AWS Neuron, Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a435772f05sm82532271cf.16 - gsmtp')
+2025-06-03 20:02:48,579 [INFO] New internship inserted: [PhD] ML Infrastructure Engineer - Distributed Training, AWS Neuron, Annapurna Labs at Amazon
+2025-06-03 20:02:48,756 [ERROR] Failed to send email for Machine Learning Chip Architect, Annapurna Labs at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6e1a527sm89517196d6.94 - gsmtp')
+2025-06-03 20:02:48,756 [INFO] New internship inserted: Machine Learning Chip Architect, Annapurna Labs at Amazon
+2025-06-03 20:02:48,913 [ERROR] Failed to send email for Software Development Engineer in Test – 2025 (US) at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d4d3bfsm89061376d6.41 - gsmtp')
+2025-06-03 20:02:48,914 [INFO] New internship inserted: Software Development Engineer in Test – 2025 (US) at Amazon
+2025-06-03 20:02:49,070 [ERROR] Failed to send email for Software Development Engineer I 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d4c91esm89561376d6.32 - gsmtp')
+2025-06-03 20:02:49,071 [INFO] New internship inserted: Software Development Engineer I 2025 at Amazon
+2025-06-03 20:02:49,221 [ERROR] Failed to send email for Software Development Engineer I 2025, Redshift at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6e1ca44sm89608096d6.112 - gsmtp')
+2025-06-03 20:02:49,221 [INFO] New internship inserted: Software Development Engineer I 2025, Redshift at Amazon
+2025-06-03 20:02:49,221 [INFO] Checking Meta careers page...
+2025-06-03 20:02:52,892 [INFO] Found 0 potential listings on Meta
+2025-06-03 20:02:52,893 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 20:03:09,124 [INFO] Shutdown requested. Exiting.
+2025-06-03 20:03:09,133 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x101cce7b0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/1428c5513c7e903fe16e5d70354e70c3
+2025-06-03 20:03:09,138 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028f5b50>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/1428c5513c7e903fe16e5d70354e70c3
+2025-06-03 20:03:09,141 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028f50a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/1428c5513c7e903fe16e5d70354e70c3
+2025-06-03 20:41:58,751 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 20:41:58,751 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 20:41:58,751 [INFO] Starting Scrapping Cycle
+2025-06-03 20:41:58,754 [INFO] Checking Google careers page...
+2025-06-03 20:42:01,489 [INFO] Found 5 potential listings on Google
+2025-06-03 20:42:01,804 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0f8ce6sm939805285a.37 - gsmtp')
+2025-06-03 20:42:01,804 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:42:01,960 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e35absm944316285a.3 - gsmtp')
+2025-06-03 20:42:01,961 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:42:02,109 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a195d7dsm937820385a.78 - gsmtp')
+2025-06-03 20:42:02,109 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:42:02,257 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a435772f98sm83805471cf.6 - gsmtp')
+2025-06-03 20:42:02,257 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:42:02,403 [ERROR] Failed to send email for Student Researcher, 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e35absm944317185a.3 - gsmtp')
+2025-06-03 20:42:02,403 [INFO] New internship inserted: Student Researcher, 2025 at Google
+2025-06-03 20:42:02,409 [INFO] Checking Microsoft careers page...
+2025-06-03 20:42:06,560 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 20:42:06,560 [INFO] Checking Amazon careers page...
+2025-06-03 20:42:09,416 [INFO] Found 3 potential listings on Amazon
+2025-06-03 20:42:09,690 [ERROR] Failed to send email for Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a1a7932sm934737785a.104 - gsmtp')
+2025-06-03 20:42:09,690 [INFO] New internship inserted: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 20:42:09,855 [ERROR] Failed to send email for Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d4d6b6sm90329776d6.44 - gsmtp')
+2025-06-03 20:42:09,855 [INFO] New internship inserted: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 20:42:10,009 [ERROR] Failed to send email for Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d35164sm90193726d6.24 - gsmtp')
+2025-06-03 20:42:10,009 [INFO] New internship inserted: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 20:42:10,012 [INFO] Checking Meta careers page...
+2025-06-03 20:42:13,475 [INFO] Found 0 potential listings on Meta
+2025-06-03 20:42:13,475 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 20:43:08,452 [INFO] Shutdown requested. Exiting.
+2025-06-03 20:43:08,455 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(54, 'Connection reset by peer')': /session/3b870ffe9cb73d2c0f07c9199a457c99
+2025-06-03 20:43:08,457 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105223410>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/3b870ffe9cb73d2c0f07c9199a457c99
+2025-06-03 20:43:08,458 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105223ad0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/3b870ffe9cb73d2c0f07c9199a457c99
+2025-06-03 20:43:17,332 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 20:43:17,332 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 20:43:17,332 [INFO] Starting Scrapping Cycle
+2025-06-03 20:43:17,345 [INFO] Checking Google careers page...
+2025-06-03 20:43:20,225 [INFO] Found 5 potential listings on Google
+2025-06-03 20:43:20,344 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:43:20,350 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:43:20,352 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:43:20,353 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:43:20,354 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 20:43:20,355 [INFO] Checking Microsoft careers page...
+2025-06-03 20:43:23,900 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 20:43:23,900 [INFO] Checking Amazon careers page...
+2025-06-03 20:43:26,748 [INFO] Found 3 potential listings on Amazon
+2025-06-03 20:43:26,832 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 20:43:26,834 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 20:43:26,835 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 20:43:26,836 [INFO] Checking Meta careers page...
+2025-06-03 20:43:29,666 [INFO] Found 0 potential listings on Meta
+2025-06-03 20:43:29,667 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 20:43:32,454 [INFO] Shutdown requested. Exiting.
+2025-06-03 20:43:32,460 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1054681a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/521fc2e6318fce022ed1f76bd8d3413b
+2025-06-03 20:43:32,461 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10786ad20>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/521fc2e6318fce022ed1f76bd8d3413b
+2025-06-03 20:43:32,464 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10786ad80>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/521fc2e6318fce022ed1f76bd8d3413b
+2025-06-03 20:44:15,368 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 20:44:15,369 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 20:44:15,369 [INFO] Starting Scrapping Cycle
+2025-06-03 20:44:15,381 [INFO] Checking Google careers page...
+2025-06-03 20:44:18,265 [INFO] Found 5 potential listings on Google
+2025-06-03 20:44:18,398 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:44:18,407 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:44:18,409 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:44:18,410 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:44:18,411 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 20:44:18,411 [INFO] Checking Microsoft careers page...
+2025-06-03 20:44:21,522 [INFO] Found 1 potential listings on Microsoft
+2025-06-03 20:44:21,547 [INFO] Error when trying get the attribute for 
+2025-06-03 20:44:21,551 [INFO] Error when trying to get the selector for 
+2025-06-03 20:44:21,716 [ERROR] Failed to send email for Research Intern - High performance and Scalable Database Systems at Microsoft: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0f95ecsm935553485a.39 - gsmtp')
+2025-06-03 20:44:21,717 [INFO] New internship inserted: Research Intern - High performance and Scalable Database Systems at Microsoft
+2025-06-03 20:44:21,720 [INFO] Checking Amazon careers page...
+2025-06-03 20:44:24,162 [INFO] Found 3 potential listings on Amazon
+2025-06-03 20:44:24,240 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 20:44:24,242 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 20:44:24,243 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 20:44:24,244 [INFO] Checking Meta careers page...
+2025-06-03 20:44:27,397 [INFO] Found 0 potential listings on Meta
+2025-06-03 20:44:27,398 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 20:47:25,936 [INFO] Shutdown requested. Exiting.
+2025-06-03 20:47:25,949 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10434b350>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/95b3672bdd23bab668c4e045bb92f89c
+2025-06-03 20:47:25,950 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107072540>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/95b3672bdd23bab668c4e045bb92f89c
+2025-06-03 20:47:25,951 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107543560>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/95b3672bdd23bab668c4e045bb92f89c
+2025-06-03 20:47:28,158 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 20:47:28,161 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 20:47:28,161 [INFO] Starting Scrapping Cycle
+2025-06-03 20:47:28,174 [INFO] Checking Google careers page...
+2025-06-03 20:47:31,094 [INFO] Found 5 potential listings on Google
+2025-06-03 20:47:31,221 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:47:31,244 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:47:31,246 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:47:31,247 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:47:31,248 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 20:47:31,248 [INFO] Checking Microsoft careers page...
+2025-06-03 20:47:34,508 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 20:47:34,508 [INFO] Checking Amazon careers page...
+2025-06-03 20:47:37,494 [INFO] Found 3 potential listings on Amazon
+2025-06-03 20:47:37,570 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 20:47:37,573 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 20:47:37,576 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 20:47:37,576 [INFO] Checking Meta careers page...
+2025-06-03 20:47:40,879 [INFO] Found 1 potential listings on Meta
+2025-06-03 20:47:40,889 [INFO] Error when trying to get the selector for ._6g3g x10lme4x x26uert xngnso2 x117nqv4 x1mnlqng x1e096f4
+2025-06-03 20:47:40,906 [INFO] Error when trying to get the selector for .x78zum5 x6s0dn4 x1q0g3np xl56j7k
+2025-06-03 20:47:41,089 [ERROR] Failed to send email for  at Meta: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0f8ce6sm940710185a.37 - gsmtp')
+2025-06-03 20:47:41,089 [INFO] New internship inserted:  at Meta
+2025-06-03 20:47:41,093 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 20:54:26,320 [INFO] Shutdown requested. Exiting.
+2025-06-03 20:54:26,336 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10964c560>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/880f26f63f08d872643fb4248b7dba74
+2025-06-03 20:54:26,338 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109b33fe0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/880f26f63f08d872643fb4248b7dba74
+2025-06-03 20:54:26,338 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109b33bc0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/880f26f63f08d872643fb4248b7dba74
+2025-06-03 20:54:35,263 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 20:54:35,263 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 20:54:35,263 [INFO] Starting Scrapping Cycle
+2025-06-03 20:54:35,267 [INFO] Checking Google careers page...
+2025-06-03 20:54:38,259 [INFO] Found 5 potential listings on Google
+2025-06-03 20:54:38,582 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a4358e4deasm85411151cf.45 - gsmtp')
+2025-06-03 20:54:38,582 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:54:38,733 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6e00dcfsm90377746d6.87 - gsmtp')
+2025-06-03 20:54:38,733 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:54:38,886 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e3fa9sm937301185a.24 - gsmtp')
+2025-06-03 20:54:38,886 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 20:54:39,036 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a5919064dbsm35252401cf.53 - gsmtp')
+2025-06-03 20:54:39,036 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 20:54:39,193 [ERROR] Failed to send email for Student Researcher, 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0f9cc1sm940440985a.42 - gsmtp')
+2025-06-03 20:54:39,193 [INFO] New internship inserted: Student Researcher, 2025 at Google
+2025-06-03 20:54:39,196 [INFO] Checking Microsoft careers page...
+2025-06-03 20:54:42,785 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 20:54:42,785 [INFO] Checking Amazon careers page...
+2025-06-03 20:54:45,744 [INFO] Found 3 potential listings on Amazon
+2025-06-03 20:54:45,954 [ERROR] Failed to send email for Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a4358ada95sm83312021cf.28 - gsmtp')
+2025-06-03 20:54:45,954 [INFO] New internship inserted: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 20:54:46,090 [ERROR] Failed to send email for Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0f8cd2sm932602985a.32 - gsmtp')
+2025-06-03 20:54:46,090 [INFO] New internship inserted: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 20:54:46,227 [ERROR] Failed to send email for Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e2fc3sm950903285a.19 - gsmtp')
+2025-06-03 20:54:46,227 [INFO] New internship inserted: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 20:54:46,230 [INFO] Checking Meta careers page...
+2025-06-03 20:54:49,395 [INFO] Found 1 potential listings on Meta
+2025-06-03 20:54:49,407 [INFO] Error when trying to get the selector for .div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 20:54:49,595 [ERROR] Failed to send email for  at Meta: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a112dc8sm939264585a.62 - gsmtp')
+2025-06-03 20:54:49,595 [INFO] New internship inserted:  at Meta
+2025-06-03 20:54:49,600 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 21:01:12,982 [INFO] Shutdown requested. Exiting.
+2025-06-03 21:01:13,008 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x122e32b40>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/250db91d29bd4bb128db985846073edf
+2025-06-03 21:01:13,010 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x123321b50>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/250db91d29bd4bb128db985846073edf
+2025-06-03 21:01:13,011 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x123321fa0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/250db91d29bd4bb128db985846073edf
+2025-06-03 21:01:21,128 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 21:01:21,128 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 21:01:21,128 [INFO] Starting Scrapping Cycle
+2025-06-03 21:01:21,133 [INFO] Checking Google careers page...
+2025-06-03 21:01:23,861 [INFO] Found 5 potential listings on Google
+2025-06-03 21:01:24,153 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6e00ce0sm90393656d6.82 - gsmtp')
+2025-06-03 21:01:24,153 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:01:24,301 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d5b04asm90262176d6.51 - gsmtp')
+2025-06-03 21:01:24,302 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:01:24,460 [ERROR] Failed to send email for Student Researcher, BS/MS, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a0e3623sm958527085a.7 - gsmtp')
+2025-06-03 21:01:24,460 [INFO] New internship inserted: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:01:24,616 [ERROR] Failed to send email for Student Researcher, PhD, Winter/Summer 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6facab00339sm87314026d6.125 - gsmtp')
+2025-06-03 21:01:24,616 [INFO] New internship inserted: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:01:24,765 [ERROR] Failed to send email for Student Researcher, 2025 at Google: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a1144d8sm934420585a.54 - gsmtp')
+2025-06-03 21:01:24,765 [INFO] New internship inserted: Student Researcher, 2025 at Google
+2025-06-03 21:01:24,771 [INFO] Checking Microsoft careers page...
+2025-06-03 21:01:27,607 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 21:01:27,608 [INFO] Checking Amazon careers page...
+2025-06-03 21:01:30,508 [INFO] Found 3 potential listings on Amazon
+2025-06-03 21:01:30,730 [ERROR] Failed to send email for Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d4c91esm90443226d6.32 - gsmtp')
+2025-06-03 21:01:30,731 [INFO] New internship inserted: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 21:01:30,879 [ERROR] Failed to send email for Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6fac6d3517bsm90329366d6.4 - gsmtp')
+2025-06-03 21:01:30,879 [INFO] New internship inserted: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 21:01:31,023 [ERROR] Failed to send email for Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a115960sm937448685a.57 - gsmtp')
+2025-06-03 21:01:31,024 [INFO] New internship inserted: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 21:01:31,031 [INFO] Checking Meta careers page...
+2025-06-03 21:01:34,537 [INFO] Found 1 potential listings on Meta
+2025-06-03 21:01:34,712 [ERROR] Failed to send email for Software Engineer, Systems at Meta: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4a591af28c6sm35219451cf.59 - gsmtp')
+2025-06-03 21:01:34,712 [INFO] New internship inserted: Software Engineer, Systems at Meta
+2025-06-03 21:01:34,715 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 21:03:50,576 [INFO] Shutdown requested. Exiting.
+2025-06-03 21:03:50,595 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104036b40>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/85bdb75f80b254b94e387478bbebc596
+2025-06-03 21:03:50,599 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109d20ce0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/85bdb75f80b254b94e387478bbebc596
+2025-06-03 21:03:50,600 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109d222d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/85bdb75f80b254b94e387478bbebc596
+2025-06-03 21:03:54,777 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 21:03:54,777 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 21:03:54,778 [INFO] Starting Scrapping Cycle
+2025-06-03 21:03:54,785 [INFO] Checking Google careers page...
+2025-06-03 21:03:57,704 [INFO] Found 5 potential listings on Google
+2025-06-03 21:03:57,820 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:03:57,827 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:03:57,828 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:03:57,830 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:03:57,831 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 21:03:57,832 [INFO] Checking Microsoft careers page...
+2025-06-03 21:04:00,927 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 21:04:00,928 [INFO] Checking Amazon careers page...
+2025-06-03 21:04:04,227 [INFO] Found 3 potential listings on Amazon
+2025-06-03 21:04:04,293 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 21:04:04,294 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 21:04:04,295 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 21:04:04,296 [INFO] Checking Meta careers page...
+2025-06-03 21:04:08,093 [INFO] Found 10 potential listings on Meta
+2025-06-03 21:04:08,105 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,113 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,121 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,164 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,178 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,190 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,193 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,196 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,200 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,203 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,206 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,208 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,212 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,215 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,219 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,222 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,225 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,229 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,232 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,235 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,238 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,242 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,245 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,248 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,251 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,255 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,258 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,261 [INFO] Error when trying to get the selector for div._6g3g.x10lme4x.x26uert.xngnso2.x117nqv4.x1mnlqng.x1e096f4
+2025-06-03 21:04:08,264 [INFO] Error when trying get the attribute for a
+2025-06-03 21:04:08,267 [INFO] Error when trying to get the selector for div.x78zum5.x6s0dn4.x1q0g3np.xl56j7k
+2025-06-03 21:04:08,454 [ERROR] Failed to send email for  at Meta: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7d09a115aabsm938071985a.60 - gsmtp')
+2025-06-03 21:04:08,454 [INFO] New internship inserted:  at Meta
+2025-06-03 21:04:08,458 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,461 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,463 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,464 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,466 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,469 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,471 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,472 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,474 [INFO] Duplicate found, not inserting:  at Meta
+2025-06-03 21:04:08,477 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 21:09:27,789 [INFO] Shutdown requested. Exiting.
+2025-06-03 21:09:27,808 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103a53350>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/731e80eddda397cdc56d1799b7ddec1c
+2025-06-03 21:09:27,810 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105e4e6c0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/731e80eddda397cdc56d1799b7ddec1c
+2025-06-03 21:09:27,810 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105ec7290>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/731e80eddda397cdc56d1799b7ddec1c
+2025-06-03 21:09:43,497 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 21:09:43,497 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 21:09:43,497 [INFO] Starting Scrapping Cycle
+2025-06-03 21:09:43,504 [INFO] Checking Google careers page...
+2025-06-03 21:09:46,374 [INFO] Found 5 potential listings on Google
+2025-06-03 21:09:46,482 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:09:46,493 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:09:46,495 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:09:46,496 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:09:46,496 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 21:09:46,497 [INFO] Checking Microsoft careers page...
+2025-06-03 21:09:49,976 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 21:09:49,977 [INFO] Checking Amazon careers page...
+2025-06-03 21:09:52,845 [INFO] Found 3 potential listings on Amazon
+2025-06-03 21:09:52,923 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 21:09:52,925 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 21:09:52,926 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 21:09:52,927 [INFO] Checking Meta careers page...
+2025-06-03 21:09:55,844 [INFO] Found 0 potential listings on Meta
+2025-06-03 21:09:55,845 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 21:10:09,012 [INFO] Shutdown requested. Exiting.
+2025-06-03 21:10:09,016 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106eb85f0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c31c744535117d44549e1ed070c04dc9
+2025-06-03 21:10:09,017 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109a837a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c31c744535117d44549e1ed070c04dc9
+2025-06-03 21:10:09,020 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109a82fc0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c31c744535117d44549e1ed070c04dc9
+2025-06-03 21:12:16,556 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 21:12:16,556 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 21:12:16,556 [INFO] Starting Scrapping Cycle
+2025-06-03 21:12:16,560 [INFO] Checking Google careers page...
+2025-06-03 21:12:19,547 [INFO] Found 5 potential listings on Google
+2025-06-03 21:12:19,750 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:12:19,758 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:12:19,760 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:12:19,761 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:12:19,762 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 21:12:19,763 [INFO] Checking Microsoft careers page...
+2025-06-03 21:12:23,063 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 21:12:23,064 [INFO] Checking Amazon careers page...
+2025-06-03 21:12:25,931 [INFO] Found 3 potential listings on Amazon
+2025-06-03 21:12:26,015 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 21:12:26,017 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 21:12:26,018 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 21:12:26,019 [INFO] Checking SimplyHired careers page...
+2025-06-03 21:12:28,175 [INFO] Found 0 potential listings on SimplyHired
+2025-06-03 21:12:28,176 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 21:13:37,037 [INFO] Shutdown requested. Exiting.
+2025-06-03 21:13:37,048 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103f1f350>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/fbe98905e84fadc692f3a5ffa10a8b40
+2025-06-03 21:13:37,051 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1046e6450>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/fbe98905e84fadc692f3a5ffa10a8b40
+2025-06-03 21:13:37,052 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1064e6600>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/fbe98905e84fadc692f3a5ffa10a8b40
+2025-06-03 21:13:41,091 [INFO] Connecting to Postgres at host=localhost, port=5432, db=internships, user=my_pg_user
+2025-06-03 21:13:41,091 [INFO] Email notifications from your_email@gmail.com to your_email@gmail.com via smtp.gmail.com:465
+2025-06-03 21:13:41,091 [INFO] Starting Scrapping Cycle
+2025-06-03 21:13:41,104 [INFO] Checking Google careers page...
+2025-06-03 21:13:44,007 [INFO] Found 5 potential listings on Google
+2025-06-03 21:13:44,131 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:13:44,140 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:13:44,142 [INFO] Duplicate found, not inserting: Student Researcher, BS/MS, Winter/Summer 2025 at Google
+2025-06-03 21:13:44,143 [INFO] Duplicate found, not inserting: Student Researcher, PhD, Winter/Summer 2025 at Google
+2025-06-03 21:13:44,144 [INFO] Duplicate found, not inserting: Student Researcher, 2025 at Google
+2025-06-03 21:13:44,145 [INFO] Checking Microsoft careers page...
+2025-06-03 21:13:47,832 [INFO] Found 0 potential listings on Microsoft
+2025-06-03 21:13:47,832 [INFO] Checking Amazon careers page...
+2025-06-03 21:13:50,695 [INFO] Found 3 potential listings on Amazon
+2025-06-03 21:13:50,771 [INFO] Duplicate found, not inserting: Amazon Robotics - Technical Artist Co-op - July to December 2025, Virtual Systems at Amazon
+2025-06-03 21:13:50,773 [INFO] Duplicate found, not inserting: Amazon Robotics - Software Development Engineer Co-Op - Fall 2025 at Amazon
+2025-06-03 21:13:50,774 [INFO] Duplicate found, not inserting: Amazon Robotics - Embedded Firmware Co-op - July to December 2025 at Amazon
+2025-06-03 21:13:50,775 [INFO] Checking SimplyHired careers page...
+2025-06-03 21:13:52,888 [INFO] Found 0 potential listings on SimplyHired
+2025-06-03 21:13:52,888 [INFO] Scraping cycle complete. Sleeping 30.0 minutes.
+2025-06-03 21:25:05,790 [INFO] Shutdown requested. Exiting.
+2025-06-03 21:25:05,813 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107b1d700>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0af8cb77148d46778a20bec1b1a95411
+2025-06-03 21:25:05,814 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107aebe30>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0af8cb77148d46778a20bec1b1a95411
+2025-06-03 21:25:05,814 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107fb2300>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0af8cb77148d46778a20bec1b1a95411

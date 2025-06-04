@@ -4,7 +4,7 @@
     "url": "https://www.simplyhired.com/search?q=software+intern&l=20148&job=szma2Kb1PmcF85vEH1KfQuFdouYoqhJIyM1BXnsh3UrovWpNLkmJ2g&s=d&sr=50",
     "type": "simplyhired", 
     "selectors": {
-      "listings": "[data-testid='searchSerpJob']",
+      "listings": "li.css-0",
       "title": "[data-testid='searchSerpJobTitle'], .SerpJob-jobTitle a, .jobposting-title a",
       "company": "[data-testid='companyName'], .SerpJob-companyName, .jobposting-company",
       "link": "[data-testid='searchSerpJobTitle'] a, .SerpJob-jobTitle a, .jobposting-title a",
